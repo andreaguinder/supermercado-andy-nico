@@ -30,15 +30,19 @@ header::after{
 
 .logo{
     float: left;
-    margin-top: -0.75rem;
-    margin-left: 0.25rem;
+    margin-top: -12px;
+    margin-left: 4px;
 }
 
 .logo h1{
     color: #ffffff;
-    font-size: 16rem;
-    margin-left: 0.25rem;
-    margin-top: 1.2rem;
+    font-size: 20px;
+    margin-left: 4px;
+    margin-top: 19.2px;
+}
+
+#nombreSuper a {
+    color: #FFFFFF;
 }
 
 .logo h1 a{
@@ -54,7 +58,7 @@ header::after{
     background-color: #06a2d8;
     clip-path: circle(0 at top right);
     transition: clip-path ease-in-out 0.5s;
-    backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(8px);
     z-index: 100;
     margin-right: 0px !important;
 }
@@ -70,7 +74,7 @@ header::after{
     padding-top: 0%;
     padding-left: 2%;
     list-style: none;
-    width: 12rem;
+    width: 192px;
     margin-bottom: 0px !important;
     height: fit-content;
     box-shadow: 0px 5px 7px rgba(63, 62, 62, 0.75);
@@ -87,10 +91,10 @@ header::after{
 .site__nav a{
     color: #ffffff;
     display: block;
-    padding: 1rem 1rem;
+    padding: 16px 0px 15px;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 12px;
 }
 
 .site__nav a:hover{
@@ -100,34 +104,34 @@ header::after{
 }
 
 .site__nav a:focus{
-    background-color: rgba(0, 0, 0, 0.685);
+    background-color: #51C2F1;
     border: 1px solid rgba(255,255,255,05);
     text-decoration: underline;
 }
 
 .site__nav--icon{
     display: inline-block;
-    font-size: 0.9rem;
-    margin-right: 1.50rem;
-    width: 3rem;
+    font-size: 14.4px;
+    margin-right: 24px;
+    width: 48px;
     text-align: right;
     color: #FFFFFF;
 }
 
 /*el menu hamburguesa*/
 .menu-toggle{
-    backdrop-filter: blur(15rem);
+    backdrop-filter: blur(240px);
     border: 2px solid rgb(216, 216, 216);
     border-radius: 3px;
-    padding: 0.75rem 1rem 1.25rem;
+    padding: 12px 16px 20px;
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 8px;
+    right: 8px;
     margin-right: 0px !important;
 }
 
 .menu-toggle.menu-abierto {
-    padding: 1.20rem 1rem 0.80rem !important;
+    padding: 19.2px 16px 12.8px !important;
 }
 
 .menu-abierto .menu-hamburguesa{
@@ -139,13 +143,13 @@ header::after{
 }
 
 .menu-abierto .menu-hamburguesa::after{
-    transform: translateY(-0.45rem) rotate(-90deg);
+    transform: translateY(-7.2px) rotate(-90deg);
 }
 
 div.menu-hamburguesa{
-    padding-top: 0.025rem;
-    padding-bottom: 0.20rem;
-    height: 0.25rem;
+    padding-top: 0.4px;
+    padding-bottom: 3.2px;
+    height: 4px;
 }
 
 .menu-hamburguesa,
@@ -154,25 +158,25 @@ div.menu-hamburguesa{
     content: "";
     display: block;
     background-color: #ffffff;
-    height: 0.25rem;
-    width: 1.5rem;
-    border-radius: 0.5rem;
+    height: 4px;
+    width: 24px;
+    border-radius: 8px;
     transition: all ease-in-out 0.4s;
-    margin-bottom: 0.2rem;
+    margin-bottom: 3.2px;
 }
 
 .menu-hamburguesa::before{
-    transform: translateY(0.35rem);
+    transform: translateY(5.6px);
 }
 
 .menu-hamburguesa::after{
-    transform: translateY(0.35rem);
+    transform: translateY(5.6px);
 }
 
 .mainSpace .mockup-web{
     width: 90%;
     justify-content: center;
-    margin: 0px auto 2rem;
+    margin: 0px auto 32px;
     display: flex;
     animation: fadeIn 1.5s ease;
 }
@@ -188,7 +192,7 @@ div.menu-hamburguesa{
     }
     .logo h1 {
         font-size: 30px;
-        margin-top: 12px;
+        margin-top: 16px;
         color: #FFFFFF;
     }
 
@@ -196,6 +200,8 @@ div.menu-hamburguesa{
         color: #ffffff;
         text-decoration: none;
     }
+
+    
     header{
         border: none;
     }
@@ -207,8 +213,8 @@ div.menu-hamburguesa{
         position: relative;
         backdrop-filter: none;
         float: right;
-        margin-top: -2.5rem;
-        margin-right: 1rem;
+        margin-top: -40px;
+        margin-right: 16px;
         clip-path: initial;
         text-align: center;
     }
@@ -220,8 +226,8 @@ div.menu-hamburguesa{
     }
     .site__nav a{
         padding: 0;
-        margin-top: 1.55rem;
-        margin-left: 0.75rem;
+        margin-top: 24.8px;
+        margin-left: 12px;
     }
     
     .site__nav--icon{
@@ -273,3 +279,216 @@ div.menu-hamburguesa{
 }
 
 /*Fin de Nav y menù hamburguesa*/
+
+/*------Footer Responsive con Grids y Media Queries--------*/
+
+.container__footer {
+    display: grid;
+    align-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: #51C2F1;
+    background-position: center;
+    box-shadow: 7px 0px 0px rgba(162, 161, 161, 0.75);
+    padding: 1%;
+}
+
+ul.menu__footer{
+    padding: 0%;
+}
+.menu__footer {
+    list-style: none;
+    font-size: 12px solid;
+    color: #FFFFFF;
+}
+
+#menu__inf a {
+    font-size: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#menu__inf .focusHover a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+#autor{
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-top: 0px;
+}
+
+#autor>a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+#autor>a:hover{
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.logo__footer img {
+    width: 50%;
+}
+@media only screen and (min-width: 360px) {
+
+    .container__footer {
+        grid-template-columns: 1fr;
+        display: grid;
+        width: 100%;
+    }
+
+    .logo__footer{
+        margin: 0px;
+    }
+
+    .logo__footer img{
+        width: 25%;
+    }
+
+    footer i{
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+}
+
+@media only screen and (min-width: 480px) {
+
+    h3{
+        font-size: 24px;
+        color: #585858;
+    }
+
+    .container__footer {
+        grid-template-columns: 1fr;
+    }
+
+    .logo__footer{
+        margin: 0px
+    }
+    
+}
+
+@media only screen and (min-width: 600px) {
+
+    h3{
+        font-size: 24px;
+        color: #585858;
+    }
+
+    .container__footer {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    h3{
+        font-size: 24px;
+        color: #585858;
+    }
+
+    .container__footer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+    h3{
+        font-size: 28px;
+        color: #585858;
+    }
+
+    .container__footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+        align-items: center;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    h3{
+        font-size: 28.8px;
+        color: #585858;
+    }
+
+    .container__footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+        align-items: center;
+    }
+
+    #autor{
+        margin-bottom: 0px;
+    }
+
+    .info__contacto--footer{
+        margin-top: 32px;
+
+    }
+}
+
+/*fin del footer*/
+
+/*container home info super */
+
+.contendor__section-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 50px auto 30px;
+    flex-direction: column;
+}
+
+.contendor__section-main img{
+    width: 138%;
+    margin-left: -33px;
+}
+
+.contendor__section-main p{
+    font-size: 14px;
+    margin: 20px 20px -30px;
+}
+
+
+.contendor__section-main p.parrafo{
+    margin: 20px 20px 30px;
+}
+
+.carousel-slide .carousel-item img {
+    height: 50px;
+}
+@media only screen and (min-width:767px){
+    .contendor__section-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: 30px auto 30px;
+        flex-direction: row;
+    }
+    
+    .contendor__section-main img{
+       width: 150%;
+    }
+
+    .carousel-item {
+        height: auto !important;
+        width: 80% !important;
+    }
+
+    .carousel-item img {
+        height: auto;
+    }
+}

@@ -19,16 +19,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!------------Logo en URL------------>
-    <link rel="shortcut icon" href="images/logo-ag-negro.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/logo-sa.svg" type="image/x-icon">
     <!--------Enlace a FontAwesome---------->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-----------Bootstrap---------->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--------Estilos propios----------->
     <link rel="stylesheet" href="./css/styles-global.css">
 
-    <title>Document</title>
+    <title>SUPERMERCADO ANLAS</title>
 </head>
 
 <body>
@@ -48,14 +47,101 @@
         </div>
         </header>
 
+        <section>
+            <div class="contendor__section-main">
+                
+                <div><h5>Nosotros</h5><img src="./images/descarga.jfif" alt=""></div>
+                
+                <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut beatae vero saepe iste minima neque nulla tempore libero similique ipsam doloribus perferendis ipsa fugiat, praesentium sapiente quisquam, veniam voluptatum harum!</p></div>
+            
+
+            </div>
+            <div class="contendor__section-main">
+                
+                <div><h5>Nuestra misión</h5><p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut beatae vero saepe iste minima neque nulla tempore libero similique ipsam doloribus perferendis ipsa fugiat, praesentium sapiente quisquam, veniam voluptatum harum!</p></div>
+            <div><img src="./images/descarga (1).jfif" alt=""></div>
+
+            </div>
+
+        </section>
+
+        <section>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="./images/carrusel1.png" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="./images/carrusel2.png" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="./images/carrusel3.png" alt="Third slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </section>
+        <section>
+            <div class="contendor__section-main">
+                
+                <div><h5>Ustedes</h5><img src="./images/descarga (2).jfif" alt=""></div>
+                
+                <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut beatae vero saepe iste minima neque nulla tempore libero similique ipsam doloribus perferendis ipsa fugiat, praesentium sapiente quisquam, veniam voluptatum harum!</p></div>
+            
+
+            </div>
+            <div class="contendor__section-main">
+                
+                <div><h5>Mejores ofertas</h5><p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut beatae vero saepe iste minima neque nulla tempore libero similique ipsam doloribus perferendis ipsa fugiat, praesentium sapiente quisquam, veniam voluptatum harum!</p></div>
+            <div><img src="./images/descarga (3).jfif" alt=""></div>
+
+            </div>
+
+        </section>
+
+
+
+<!--------Footer responsive con Grids y media queries-------->
+<footer>
+    <div class="container__footer">
+
+        <div class="logo__footer"><img src="images/logo-sa.svg" alt="Logo Supermercado Anlas" width="80%">
+        </div>
+
+        <div id="menu__inf">
+            <nav>
+                <ul class="menu__footer">
+                    <li class="focusHover"><a href="index.html"> Inicio </a></li>
+                    <li class="focusHover"><a href="pages/productos.html"> Productos </a></li>
+                    <li class="focusHover"><a href="pages/contacto.html"> Contacto </a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div>
+
+            <p id="autor"> Copyright © | 2024 | SUPERMERCADO ANLAS<br> Todos los Derechos Reservados
+               <br> Diseño y Desarrollo por<br> Andrea Guinder y Nicolás Dume</p>
+        </div>
+
+    </div>
+</footer>
+
 <!---------Popper para Bootstrap---------->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
 </script>
 <!---------JavaScript Bootstrap----------->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!--------JavaScript Propio---------->
 <script src="./js/index.js"></script>
 
