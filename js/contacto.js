@@ -14,23 +14,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const validateForm = () => {
     const errorText = document.createElement("span");
     if (nombreValue.value.trim() === "") {
-      console.log("Por favor ingrese nombre!");
+      errorText.textContent = "Por favor ingrese nombre"
+      boxNombre.appendChild(errorText)
+      setTimeout(() => {
+        errorText.remove()
+      }, 1500);
+      
       return;
     }
 
     if (apellidoValue.value.trim() === "") {
-      console.log("Por favor ingrese apellido!");
-      return;
+      errorText.textContent = "Por favor ingrese Apellido"
+      boxApellido.appendChild(errorText)
+      setTimeout(() => {
+        errorText.remove()
+      }, 1500);
+      return
     }
 
     if (emailValue.value.trim() === "") {
-      console.log("Por favor ingrese un email valido!");
-      return;
+      errorText.textContent = "Por favor ingrese Email valido"
+      boxEmail.appendChild(errorText)
+      setTimeout(() => {
+        errorText.remove()
+      }, 1500);
+      return
     }
 
     if (mensajeValue.value.trim() === "") {
-      console.log("Por favor ingrese su mensaje!");
-      return;
+      errorText.textContent = "Por favor ingrese un mensaje"
+      boxMensaje.appendChild(errorText)
+      setTimeout(() => {
+        errorText.remove()
+      }, 1500);
+      return
     }
 
     alert("Mensaje enviado exitosamente!");
