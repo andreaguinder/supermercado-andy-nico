@@ -1,0 +1,275 @@
+/* Nav y menù hamburguesa */
+.container-nav{
+    width: 95%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header{
+    background-color: #06a2d8;
+    background-position-x: center;
+    background-position-y: bottom;
+    height: 73px;
+    padding: 16px 0;
+    position: relative;
+    box-shadow: 0px 5px 7px rgba(162, 161, 161, 0.75);
+    width: auto;
+    margin-right: 0px !important;
+}
+
+header::after{
+    content:"";
+    clear: both;
+    display: block;
+}
+
+#nombreSuper a {
+ color: #ffffff;
+ text-decoration: none;
+}
+
+.logo{
+    float: left;
+    margin-top: -0.75rem;
+    margin-left: 0.25rem;
+}
+
+.logo h1{
+    color: #ffffff;
+    font-size: 16rem;
+    margin-left: 0.25rem;
+    margin-top: 1.2rem;
+}
+
+.logo h1 a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.site__nav{
+    top: 100%;
+    right: 0%;
+    height: fit-content;
+    position: absolute;
+    background-color: #06a2d8;
+    clip-path: circle(0 at top right);
+    transition: clip-path ease-in-out 0.5s;
+    backdrop-filter: blur(0.5rem);
+    z-index: 100;
+    margin-right: 0px !important;
+}
+
+.site__navAbrir{
+    clip-path: circle(150% at top right);
+    height: fit-content;
+    z-index: 100;
+    margin-right: 0px !important;
+}
+
+.site__nav ul{
+    padding-top: 0%;
+    padding-left: 2%;
+    list-style: none;
+    width: 12rem;
+    margin-bottom: 0px !important;
+    height: fit-content;
+    box-shadow: 0px 5px 7px rgba(63, 62, 62, 0.75);
+}
+
+.site__nav li{
+    border-bottom: 2px solid #ffffff;
+}
+
+.site__nav li:last-child{
+    border-bottom: none;
+}
+
+.site__nav a{
+    color: #ffffff;
+    display: block;
+    padding: 1rem 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+.site__nav a:hover{
+    border: 1px solid rgb(216, 216, 216);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.site__nav a:focus{
+    background-color: rgba(0, 0, 0, 0.685);
+    border: 1px solid rgba(255,255,255,05);
+    text-decoration: underline;
+}
+
+.site__nav--icon{
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-right: 1.50rem;
+    width: 3rem;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+/*el menu hamburguesa*/
+.menu-toggle{
+    backdrop-filter: blur(15rem);
+    border: 2px solid rgb(216, 216, 216);
+    border-radius: 3px;
+    padding: 0.75rem 1rem 1.25rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    margin-right: 0px !important;
+}
+
+.menu-toggle.menu-abierto {
+    padding: 1.20rem 1rem 0.80rem !important;
+}
+
+.menu-abierto .menu-hamburguesa{
+    transform: rotate(45deg);
+}
+
+.menu-abierto .menu-hamburguesa::before{
+    opacity: 0;
+}
+
+.menu-abierto .menu-hamburguesa::after{
+    transform: translateY(-0.45rem) rotate(-90deg);
+}
+
+div.menu-hamburguesa{
+    padding-top: 0.025rem;
+    padding-bottom: 0.20rem;
+    height: 0.25rem;
+}
+
+.menu-hamburguesa,
+.menu-hamburguesa::before,
+.menu-hamburguesa::after{
+    content: "";
+    display: block;
+    background-color: #ffffff;
+    height: 0.25rem;
+    width: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all ease-in-out 0.4s;
+    margin-bottom: 0.2rem;
+}
+
+.menu-hamburguesa::before{
+    transform: translateY(0.35rem);
+}
+
+.menu-hamburguesa::after{
+    transform: translateY(0.35rem);
+}
+
+.mainSpace .mockup-web{
+    width: 90%;
+    justify-content: center;
+    margin: 0px auto 2rem;
+    display: flex;
+    animation: fadeIn 1.5s ease;
+}
+
+@media only screen and (min-width: 767px){
+    .mainSpace .mockup-web{
+        width: 45%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        animation: fadeIn 1.5s ease;
+    }
+    .logo h1 {
+        font-size: 30px;
+        margin-top: 12px;
+        color: #FFFFFF;
+    }
+
+    .logo h1 a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    header{
+        border: none;
+    }
+    .menu-toggle{
+        display: none;
+    }
+    .site__nav{
+        height: auto;
+        position: relative;
+        backdrop-filter: none;
+        float: right;
+        margin-top: -2.5rem;
+        margin-right: 1rem;
+        clip-path: initial;
+        text-align: center;
+    }
+
+    .site__nav li{
+        display: inline-block;
+        border: none;
+        
+    }
+    .site__nav a{
+        padding: 0;
+        margin-top: 1.55rem;
+        margin-left: 0.75rem;
+    }
+    
+    .site__nav--icon{
+        width: 5px;
+       margin-right: 21px;
+    }
+
+    .site__nav a:hover,
+    .site__nav a:focus{
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+    }
+
+    .site__nav ul{
+        padding-top: 30px;
+        list-style: none;
+        padding-left: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    #nombreSuper a {
+        color: #FFFFFF;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .logo h1 {
+        font-size: 40px;
+        margin-top: 12px;
+        color: #ffffff;
+    }
+    
+    .logo h1 a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .site__nav a{
+        padding: 0;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    #nombreSuper a {
+        color: #FFFFFF;
+    }
+}
+
+/*Fin de Nav y menù hamburguesa*/
