@@ -668,9 +668,9 @@ marquee{
     justify-content: center;
     align-items: center;
 /*TODO DESCOMENTAR Y COMETAR ESTO PARA DESAPARECER O APARECER EL MODAL PARA ACTIVARLO CON JS*/
-    visibility: visible;
+    /* visibility: visible;
     opacity: 0;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in; */
 }
 
 .modalProductosActive{

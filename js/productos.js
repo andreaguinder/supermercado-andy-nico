@@ -1,4 +1,6 @@
-const cerrarModalProductos = document.getElementById("cerrarModalProductos")
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cerrarModalProductos = document.getElementById("cerrarModalProductos")
 const modalContainerProductos = document.getElementsByClassName("modalContainerProductos")[0]
 
 cerrarModalProductos.addEventListener("click", () =>{
@@ -13,6 +15,8 @@ cerrarModalProductos.addEventListener("click", () =>{
 
 const contenedorArticulo = document.getElementById("titProducts");
 const articulo = document.createElement("article");
+
+const container = document.createElement('div')
 
 articulo.innerHTML = `
                     <div class="mb-5">
@@ -73,3 +77,4 @@ fetch(URL)
     });
 });
 }
+}) 
