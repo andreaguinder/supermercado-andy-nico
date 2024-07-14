@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const validateForm = () => {
     const errorText = document.createElement("span");
+    errorText.classList.add("errorMensaje");
     if (nombreValue.value.trim() === "") {
-      errorText.textContent = "Por favor ingrese nombre"
+      errorText.textContent = "Por favor ingrese nombre";
       boxNombre.appendChild(errorText)
       setTimeout(() => {
         errorText.remove()
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (apellidoValue.value.trim() === "") {
-      errorText.textContent = "Por favor ingrese Apellido"
+      errorText.textContent = "Por favor ingrese Apellido";
       boxApellido.appendChild(errorText)
       setTimeout(() => {
         errorText.remove()
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (emailValue.value.trim() === "") {
-      errorText.textContent = "Por favor ingrese Email valido"
+      errorText.textContent = "Por favor ingrese Email valido";
       boxEmail.appendChild(errorText)
       setTimeout(() => {
         errorText.remove()
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (mensajeValue.value.trim() === "") {
-      errorText.textContent = "Por favor ingrese un mensaje"
+      errorText.textContent = "Por favor ingrese un mensaje";
       boxMensaje.appendChild(errorText)
       setTimeout(() => {
         errorText.remove()
@@ -50,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return
     }
 
-    alert("Mensaje enviado exitosamente!");
+    //alert("Mensaje enviado exitosamente!");
+
   };
 
   form.addEventListener("submit", (event) => {
@@ -59,3 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
     validateForm();
   });
 });
+
+let mensajeEnviadoExitosamente = document.querySelector("#modal");
+
+const abrirModalDeExito = document.getElementById("enviar")
+const cerrarModal = document.getElementById("cerrarModal")
+const modalContainerExito = document.getElementsByClassName("modalContainerExito")[0]
+
+
+if (nombreValue && apellidoValue && emailValue && mensajeValue) {
+  formulario.reset();
+
+  modalContainerExito.classList.toggle("modalExitosoActive")
+
+  document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+      icono.classList.remove('formulario__grupo-correcto');
+  });
+};

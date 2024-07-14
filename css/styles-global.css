@@ -291,6 +291,8 @@ div.menu-hamburguesa{
     background-position: center;
     box-shadow: 7px 0px 0px rgba(162, 161, 161, 0.75);
     padding: 1%;
+    bottom: 0px;
+        position: relative;
 }
 
 ul.menu__footer{
@@ -340,6 +342,8 @@ ul.menu__footer{
         grid-template-columns: 1fr;
         display: grid;
         width: 100%;
+        bottom: 0px;
+        position: relative;
     }
 
     .logo__footer{
@@ -492,3 +496,136 @@ ul.menu__footer{
         height: auto;
     }
 }
+
+/* formulario de contacto */
+
+.errorMensaje {
+    color: #FF202F;
+    font-size: 18px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 1px 5px 4px;
+}
+
+/*modal formulario enviado*/
+
+.modalContainerExito{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.5);
+    background-size: contain;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*TODO DESCOMENTAR Y COMETAR ESTO PARA DESAPARECER O APARECER EL MODAL PARA ACTIVARLO CON JS*/
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.modalFormularioExitoso{
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+}
+
+.modalExitoso{
+    color: rgb(0,0,0);
+    background-color: #ffffff;
+    width: 95%;
+    height: 95%;
+    border-radius: 8px;
+    text-align: center;
+    padding: 16px;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+.modalExitoso::-webkit-scrollbar{
+    width: 0.5rem;
+
+    background-color: #06a2d8;
+    border-radius: 48px;
+}
+
+.modalExitoso::-webkit-scrollbar-thumb{
+    background-color: #51C2F1;
+    border-radius: 48px;
+}
+
+.modalForm{
+    color: rgb(0,0,0);
+    background-color: #ffffff;
+    background-size: contain;
+    width: 50%;
+    border-radius: 8px;
+    text-align: center;
+    padding: 16px;
+    margin: auto;
+}
+
+.btnModal{
+    color: #ffffff;
+    padding: 10px;
+    background-color: #51C2F1;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-position-x: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.btnModal:hover{
+    background-color: #06a2d8;
+    color: #ffffff;
+}
+
+.formulario__grupo-correcto{
+    color: #51C2F1;
+    opacity: 1;
+}
+
+
+/*fin modal*/
+
+.container__Form {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    margin: 30px auto;
+    color: #FFFFFF;
+    background-color: #06a4d8cc;
+    border-radius: 16px;
+    width: 340px;
+}
+
+.body-contacto{
+    background-image: url(../images/foto-contacto.jpg);
+    background-size: cover;
+}
+.form-control{
+    width: 90%;
+}
+
+#form{
+    width: 340px;
+}
+
+@media only screen and (min-width:767px){
+    .container__Form{
+        width: 600px;
+        margin: 30px 30px;
+    }
+
+    .form-control{
+        width: 570px;
+    }
+}
+/*fin formulario de contacto */
