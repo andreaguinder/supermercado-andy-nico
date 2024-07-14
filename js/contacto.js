@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailValue = document.getElementById("email");
   const mensajeValue = document.getElementById("mensaje");
 
+  const buttonReset = document.getElementById("btn-reset");
+
   const boxNombre = document.getElementById("box1");
   const boxApellido = document.getElementById("box2");
   const boxEmail = document.getElementById("box3");
@@ -16,65 +18,74 @@ document.addEventListener("DOMContentLoaded", () => {
     errorText.classList.add("errorMensaje");
     if (nombreValue.value.trim() === "") {
       errorText.textContent = "Por favor ingrese nombre";
-      boxNombre.appendChild(errorText)
+      boxNombre.appendChild(errorText);
       setTimeout(() => {
-        errorText.remove()
+        errorText.remove();
       }, 1500);
-      
+
       return;
     }
 
     if (apellidoValue.value.trim() === "") {
       errorText.textContent = "Por favor ingrese Apellido";
-      boxApellido.appendChild(errorText)
+      boxApellido.appendChild(errorText);
       setTimeout(() => {
-        errorText.remove()
+        errorText.remove();
       }, 1500);
-      return
+      return;
     }
 
     if (emailValue.value.trim() === "") {
       errorText.textContent = "Por favor ingrese Email valido";
-      boxEmail.appendChild(errorText)
+      boxEmail.appendChild(errorText);
       setTimeout(() => {
-        errorText.remove()
+        errorText.remove();
       }, 1500);
-      return
+      return;
     }
 
     if (mensajeValue.value.trim() === "") {
       errorText.textContent = "Por favor ingrese un mensaje";
-      boxMensaje.appendChild(errorText)
+      boxMensaje.appendChild(errorText);
       setTimeout(() => {
-        errorText.remove()
+        errorText.remove();
       }, 1500);
-      return
+      return;
     }
 
     //alert("Mensaje enviado exitosamente!");
-
   };
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     validateForm();
+    const containerModal = document.createElement("div");
+    containerModal.classList.add("modalContainerExito");
+
+    const modalForm = document.createElement("div");
+    modalForm.classList.add("modalForm");
+
+    const buttonModal = document.createElement("button");
+    buttonModal.classList.add("btnModal", "pt-2", "px-3");
+    buttonModal.id = "cerrarModal";
+
+    buttonModal.addEventListener("click", () => {
+      containerModal.remove();
+    });
+
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid", "fa-x");
+
+    const succes = document.createElement("h5");
+    succes.innerHTML = "Su consulta fue enviada!";
+    containerModal.appendChild(modalForm);
+
+    modalForm.appendChild(buttonModal);
+    modalForm.appendChild(succes);
+
+    buttonModal.appendChild(icon);
+
+    form.appendChild(containerModal);
   });
 });
-
-let mensajeEnviadoExitosamente = document.querySelector("#modal");
-
-const abrirModalDeExito = document.getElementById("enviar")
-const cerrarModal = document.getElementById("cerrarModal")
-const modalContainerExito = document.getElementsByClassName("modalContainerExito")[0]
-
-
-if (nombreValue && apellidoValue && emailValue && mensajeValue) {
-  formulario.reset();
-
-  modalContainerExito.classList.toggle("modalExitosoActive")
-
-  document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-      icono.classList.remove('formulario__grupo-correcto');
-  });
-};
