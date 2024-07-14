@@ -1,3 +1,7 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+
 /* Nav y menù hamburguesa */
 .container-nav{
     width: 95%;
@@ -446,7 +450,7 @@ ul.menu__footer{
 
 /*container home info super */
 
-.contendor__section-main {
+.container__section-main {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -455,47 +459,188 @@ ul.menu__footer{
     flex-direction: column;
 }
 
-.contendor__section-main img{
+.container__section-main img{
     width: 138%;
     margin-left: -33px;
 }
 
-.contendor__section-main p{
+.container__section-main p{
     font-size: 14px;
     margin: 20px 20px -30px;
 }
 
 
-.contendor__section-main p.parrafo{
+.container__section-main p.parrafo{
     margin: 20px 20px 30px;
+    padding: 0px 20px 0px 10px;
+
 }
 
+.carousel__home{
+ margin-top: 47px;
+}
 .carousel-slide .carousel-item img {
     height: 50px;
 }
+
+
+.containers__main {
+    width: 100%;
+    height: auto;
+}
+
+.h1__index{
+    font-size: 22px;
+    text-align: center;
+    color: #0E1C85;
+    margin: 50px auto 20px;
+}
+
+.h2__index {
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-weight: 300;
+}
+
+
+.container__section-main h5 {
+    color: #0E1C85;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+
+.hidden-lg,
+.hidden-md{
+    display:block;
+}
+
+.hidden-xs{
+    display:none;
+}
+
+marquee{
+    margin-top: 0px !important;
+}
+
 @media only screen and (min-width:767px){
-    .contendor__section-main {
+
+
+    .carousel-control-prev2 {
+        left: 0;
+    }
+
+    .carousel-control-next2 {
+        right: 0;
+    }
+
+    .carousel-control-next2, .carousel-control-prev2 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 15%;
+        color: #fff;
+        text-align: center;
+        opacity: .5;
+    }
+    
+    .h1__index{
+        font-size: 30px;
+        text-align: center;
+        margin: 80px auto 30px;
+        color: #0E1C85;
+    }
+    
+    .h2__index {
+        font-size: 24px;
+        text-align: center;
+        width: 80%;
+        margin: 0px auto 50px;
+        font-weight: 300;
+    }
+
+    .containers__main {
+        width: 80%;
+        height: auto;
+        margin: 20px auto 100px;
+    }
+
+    .container__section-main {
+        display: flex;
+        align-items: flex-start;
         justify-content: center;
         width: 80%;
         margin: 30px auto 30px;
         flex-direction: row;
     }
     
-    .contendor__section-main img{
-       width: 150%;
+    .container__section-main img{
+       width: 400px;
+       height: auto;
+    }
+
+    .container__section-main h5 {
+        color: #0E1C85;
+        text-align: center;
+    }
+
+    
+    .container__section-main p {
+        width: 400px;
+    }
+
+    .container__section-main p.parrafo{
+        margin: 20px 20px 30px;
+        padding: 0px 20px 0px 10px;
+        
+    }
+
+    .carousel__home{
+        height: 100px;
+        margin: -50px auto 70px;
     }
 
     .carousel-item {
         height: auto !important;
-        width: 80% !important;
+        width: 100% !important;
     }
 
     .carousel-item img {
-        height: auto;
+        height: 100px;
+    }
+
+    .hidden-lg,
+    .hidden-md{
+        display:none;
+    }
+
+    .hidden-xs{
+        display:block;
     }
 }
+
+/* marquesina*/
+marquee{
+    background-color: #06a2d8;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 32px;
+    margin-top: -40px;
+  }
+/*marquesina*/
 
 /* formulario de contacto */
 
@@ -523,10 +668,64 @@ ul.menu__footer{
     justify-content: center;
     align-items: center;
 /*TODO DESCOMENTAR Y COMETAR ESTO PARA DESAPARECER O APARECER EL MODAL PARA ACTIVARLO CON JS*/
-    visibility: hidden;
+    visibility: visible;
     opacity: 0;
     transition: all 0.3s ease-in;
 }
+
+.modalProductosActive{
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+}
+
+.modalProductos{
+    color: #000000;
+    background-color: #FFFFFF;
+    width: 95%;
+    height: 95%;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+.productsProductEnlaces a{
+        text-decoration: none;
+        color: #51C2F1;
+}
+
+.productsProductEnlaces a:hover{
+    color: #06a2d8;
+}
+
+.modalProductos::-webkit-scrollbar{
+    width: 0.5rem;
+
+    background-color: #06a2d8;
+    border-radius: 3rem;
+}
+
+.modalProductos::-webkit-scrollbar-thumb{
+    background-color: #51C2F1;
+    border-radius: 3rem;
+}
+
+.span__products-input{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.span__products-input input{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+
+/*modal formulario*/
 
 .modalFormularioExitoso{
     visibility: visible;

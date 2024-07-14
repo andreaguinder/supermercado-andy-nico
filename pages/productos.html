@@ -40,7 +40,7 @@
                         <li><a href="../index.html"><i class="fa-solid fa-house site__nav--icon"></i>INICIO</a></li>
                         <li><a href="../pages/productos.html"><i class="fa-solid fa-list site__nav--icon"></i>PRODUCTOS</a></li>
                         <li><a href="../pages/contacto.html"><i class="fa fa-envelope site__nav--icon"></i>CONTACTO</a></li>
-                        <li><a href="../pages/pago.html"><i class="fa-solid fa-cart-shopping site__nav--icon"></i></a></li>
+                        <li><a href="../pages/pago.html"><i class="fa-solid fa-cart-shopping site__nav--icon"></i>TIENDA</a></li>
                     </ul>
                 </nav>
             <div id="menu-toggle" class="menu-toggle">
@@ -49,146 +49,25 @@
         </div>
         </header>
 
-<main>
-    <section>
-        <div class="info"></div>
-        <div class="container">
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-            <div class="card">
-                <h5>Fideos Marolio</h5>
-                <img src="" alt="">
-                <p class="precio">$1.500</p>
-                <p class="stock">STOCK 20 U.</p>
-                <div>
-                    <input type="text">
-                    <label for=""></label>
-                    <button class="btnModal">+</button>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
+        <main class="mainSpace">
 
+
+            <!-------Se ingresan las actividades del gimnasio------>
+            <div id="titProducts" class="text-center container mt-5">
+            </div>
+            <section class="text-center mb-5">
+                <button onclick=verProducts() class="btnModal btn-lg"> VER PRODUCTOS </button>
+            </section>
+            <section id="productsProduct" class="contenedor row justify-content-around mx-5 my-3 text-center">
+            </section>
+            <!-------Se abre un modal con la descripción de cada actividad (ficticia)------>
+            <div class="modalContainerProductos">
+                <div class="modalProductos">
+                    <div id="descriptionProducts"></div>
+                    <button  id="cerrarModalProductos"  class="btnModal pt-2 px-3"><i class="fa-solid fa-x"></i></button>
+                </div>
+            </div>
+        </main>
 
 
 <!--------Footer responsive con Grids y media queries-------->
@@ -227,6 +106,8 @@
 </script>
 <!--------JavaScript Propio---------->
 <script src="../js/index.js"></script>
+<!--------JavaScript Propio---------->
+<script src="../js/productos.js"></script>
 
 
 </body>
