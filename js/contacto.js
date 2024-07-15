@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailValue = document.getElementById("email");
   const mensajeValue = document.getElementById("mensaje");
 
-  const buttonReset = document.getElementById("btn-reset");
 
   const boxNombre = document.getElementById("box1");
   const boxApellido = document.getElementById("box2");
@@ -53,39 +52,58 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    //alert("Mensaje enviado exitosamente!");
+    renderModal();
+
+  };
+
+  const renderModal = () => {
+
+    const containerModal = document.createElement("div");
+    containerModal.classList.add("modalContainerExito");
+
+
+    const modalForm = document.createElement("div");
+    modalForm.classList.add("modalForm");
+
+
+    const buttonModal = document.createElement("button");
+    buttonModal.classList.add("btnModal", "pt-2", "px-3");
+    buttonModal.id = "cerrarModal";
+
+
+    buttonModal.addEventListener("click", () => {
+      containerModal.remove();
+      resetForm();
+    });
+
+
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid", "fa-x");
+
+    const success = document.createElement("h5");
+    success.textContent = "¡Su consulta fue enviada!";
+
+
+    modalForm.appendChild(buttonModal);
+    modalForm.appendChild(success);
+    buttonModal.appendChild(icon);
+    containerModal.appendChild(modalForm);
+
+    form.appendChild(containerModal);
+  };
+
+  const resetForm = () => {
+    nombreValue.value = "";
+    apellidoValue.value = "";
+    emailValue.value = "";
+    mensajeValue.value = "";
   };
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     validateForm();
-    const containerModal = document.createElement("div");
-    containerModal.classList.add("modalContainerExito");
 
-    const modalForm = document.createElement("div");
-    modalForm.classList.add("modalForm");
 
-    const buttonModal = document.createElement("button");
-    buttonModal.classList.add("btnModal", "pt-2", "px-3");
-    buttonModal.id = "cerrarModal";
-
-    buttonModal.addEventListener("click", () => {
-      containerModal.remove();
-    });
-
-    const icon = document.createElement("i");
-    icon.classList.add("fa-solid", "fa-x");
-
-    const succes = document.createElement("h5");
-    succes.innerHTML = "Su consulta fue enviada!";
-    containerModal.appendChild(modalForm);
-
-    modalForm.appendChild(buttonModal);
-    modalForm.appendChild(succes);
-
-    buttonModal.appendChild(icon);
-
-    form.appendChild(containerModal);
   });
 });
