@@ -782,7 +782,7 @@ marquee {
 }
 
 .body-contacto {
-  background-image: url(../images/foto-contacto.jpg);
+  background-image: url(../images/foto-contacto.webp);
   background-size: cover;
 }
 .form-control {
