@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
 
-  const nameValue = document.getElementById("nombre");
-  const surnameValue = document.getElementById("apellido");
+  const nameValue = document.getElementById("name");
+  const surnameValue = document.getElementById("surname");
   const emailValue = document.getElementById("email");
   const phoneValue = document.getElementById("phone");
-  const messageValue = document.getElementById("mensaje");
-
+  const messageValue = document.getElementById("message");
   const validateForm = () => {
     if (nameValue.value.trim() === "") {
       const errorMessage = document.createElement("span");
@@ -21,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return;
     }
+    // Aquí puedes llamar a otra función como `renderModal()` si todos los campos están validados
     renderModal();
   };
 
@@ -55,10 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const resetForm = () => {
-    nombreValue.value = "";
-    apellidoValue.value = "";
+    nameValue.value = "";
+    surnameValue.value = "";
     emailValue.value = "";
-    mensajeValue.value = "";
+    phoneValue.value = "";
+    messageValue.value = "";
   };
 
   form.addEventListener("submit", (event) => {
