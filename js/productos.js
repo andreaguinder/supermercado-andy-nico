@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       containerProducts.appendChild(containerCard);
       btnAdd.addEventListener("click", () => {
-        console.log("Agregaste un producto");
+        let currentValue = parseInt(input.value) || 0;
+        input.value = currentValue + 1;
       });
     });
   };
