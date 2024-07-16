@@ -8,38 +8,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageValue = document.getElementById("message");
 
   const fields = [
-    nameValue.value.trim(),
-    surnameValue.value.trim(),
-    emailValue.value.trim(),
-    phoneValue.value.trim(),
-    messageValue.value.trim(),
+    nameValue,
+    surnameValue,
+    emailValue,
+    phoneValue,
+    messageValue,
   ];
 
   const validateForm = () => {
-    
-    let isValid = true
+    let isValid = true;
 
-    fields.forEach((value) => {
+    fields.forEach((field) => {
+      if (field.value.trim() === "") {
+        isValid = false;
+      }
+    });
 
-      if (value === "") {
-      isValid = false
+    if (!isValid) {
+      const errorMessage = document.createElement("span");
+      errorMessage.classList.add("errorMensaje");
+      errorMessage.textContent = "Todos los campos son obligatorios";
+      form.appendChild(errorMessage);
+
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 1500);
+
+      return;
     }
-    
-    if (isValid === false) {
-       const errorMessage = document.createElement("span");
-        errorMessage.classList.add("errorMensaje");
-        errorMessage.textContent = "Todos los campos son obligatorios";
-         form.appendChild(errorMessage);
 
-        setTimeout(() => {
-          errorMessage.remove();
-        }, 1500);
-        return;
-    }
-
-    renderModal()
-
-  });
+    renderModal();
+  };
 
   const renderModal = () => {
     const containerModal = document.createElement("div");
@@ -63,26 +62,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const success = document.createElement("h5");
     success.textContent = "¡Su consulta fue enviada!";
 
+    buttonModal.appendChild(icon);
     modalForm.appendChild(buttonModal);
     modalForm.appendChild(success);
-    buttonModal.appendChild(icon);
     containerModal.appendChild(modalForm);
 
-    form.appendChild(containerModal);
+    document.body.appendChild(containerModal);
   };
 
   const resetForm = () => {
-    nameValue.value = "";
-    surnameValue.value = "";
-    emailValue.value = "";
-    phoneValue.value = "";
-    messageValue.value = "";
+    fields.forEach((field) => {
+      field.value = "";
+    });
   };
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-
     validateForm();
   });
-}
-
+});
