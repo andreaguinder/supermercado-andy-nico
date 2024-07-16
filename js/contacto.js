@@ -16,23 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const validateForm = () => {
+    
+    let isValid = true
+
     fields.forEach((value) => {
+
       if (value === "") {
-        const errorMessage = document.createElement("span");
+      isValid = false
+    }
+    
+    if (isValid === false) {
+       const errorMessage = document.createElement("span");
         errorMessage.classList.add("errorMensaje");
         errorMessage.textContent = "Todos los campos son obligatorios";
-
-        form.appendChild(errorMessage);
+         form.appendChild(errorMessage);
 
         setTimeout(() => {
           errorMessage.remove();
         }, 1500);
         return;
-      } else {
-        renderModal();
-      }
-    });
-  };
+    }
+
+    renderModal()
+
+  });
 
   const renderModal = () => {
     const containerModal = document.createElement("div");
@@ -77,4 +84,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     validateForm();
   });
-});
+}
+
