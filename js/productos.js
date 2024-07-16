@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const imagesProducts = [
     "../images/fideos-marolio.webp",
-    "../images/toallitas-nosotras.jpg",
+    "../images/toallitas-nosotras.webp",
     "../images/tequila.webp",
-    "../images/juego-de-bateria.jpg",
+    "../images/juego-de-bateria.webp",
     "../images/plato-cuadrado.webp",
-    "../images/plato-redondo.jpg",
-    "../images/hueso-mordisco.jpg",
-    "../images/cubo-rubik.jpg",
-    "../images/coca-cola.jpg",
+    "../images/plato-redondo.webp",
+    "../images/hueso-mordisco.webp",
+    "../images/cubo-rubik.webp",
+    "../images/coca-cola.webp",
   ];
 
   const renderProducts = () => {
