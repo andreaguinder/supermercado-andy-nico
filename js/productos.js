@@ -1,80 +1,98 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const containerProducts = document.getElementById("productsProduct");
+  const nameProducts = [
+    "Fideos Marolio",
+    "Toallitas Nosotras",
+    "Tequila José Cuervo",
+    "Juego de Batería x 5",
+    "Plato cuadrado",
+    "Plato redondo",
+    "Hueso mordisco",
+    "Cubo Rubik",
+    "Coca Cola 1L",
+  ];
+  const priceProducts = [
+    "1100",
+    "640",
+    "3500",
+    "1850",
+    "8500",
+    "6350",
+    "1500",
+    "920",
+    "1350",
+  ];
 
-    const cerrarModalProductos = document.getElementById("cerrarModalProductos")
-const modalContainerProductos = document.getElementsByClassName("modalContainerProductos")[0]
+  const sctockProducts = [10, 15, 11, 25, 33, 5, 12, 14, 17];
 
-cerrarModalProductos.addEventListener("click", () =>{
-    modalContainerProductos.classList.toggle("modalProductosActive")
-})
+  const imagesProducts = [
+    "../images/fideos-marolio.webp",
+    "../images/toallitas-nosotras.jpg",
+    "../images/tequila.webp",
+    "../images/juego-de-bateria.jpg",
+    "../images/plato-cuadrado.webp",
+    "../images/plato-redondo.jpg",
+    "../images/hueso-mordisco.jpg",
+    "../images/cubo-rubik.jpg",
+    "../images/coca-cola.jpg",
+  ];
 
-cerrarModalProductos.addEventListener("click", () =>{
-    modalContainerProductos.style.display="block";
-})
+  const renderProducts = () => {
+    nameProducts.forEach((nameProduct, index) => {
+      const containerCard = document.createElement("div");
+      containerCard.classList.add("card-img-top");
+      containerCard.style = "width: 18rem";
 
-// Inserto DOM desde JS
+      const imgProduct = document.createElement("img");
+      imgProduct.classList.add("card-img-top");
+      imgProduct.src = imagesProducts[index];
+      imgProduct.alt = nameProduct;
 
-const contenedorArticulo = document.getElementById("titProducts");
-const articulo = document.createElement("article");
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body", "mb-4");
 
-const container = document.createElement('div')
+      const labelNameProduct = document.createElement("h5");
+      labelNameProduct.classList.add("card-title", "grande");
+      labelNameProduct.textContent = nameProduct;
 
-articulo.innerHTML = `
-                    <div class="mb-5">
-                    <h1 class="h1__index">Productos de nuestro negocio</h1>
-                    <p class="productsProductEnlaces"></p>
-                    <p class="productsProductEnlaces">Si buscás algún prodcuto en especial que no se encuentra en la lista por favor no dudes en contactarnos: <a href="../pages/contacto.html"><strong>CONTACTO</strong></a>.</p><br>
-                    <h2 class="h2__index">Para más información y elección de nuestros productos haz click en el siguiente botón</h2>
-                    </div>
-                `;
+      const labelStockProduct = document.createElement("h6");
+      labelStockProduct.classList.add("card-title", "grande");
+      labelStockProduct.textContent = `Stock ${sctockProducts[index]} unidades`;
 
-contenedorArticulo.appendChild(articulo);
+      const labelPriceProduct = document.createElement("h6");
+      labelPriceProduct.textContent = `$${priceProducts[index]} por unidad`;
 
-// Array de cards con info productos
+      const span = document.createElement("span");
+      span.type = "text";
+      span.classList.add("span__products-input");
 
-const URL = "../json/data.json";
+      const input1 = document.createElement("input");
+      input1.type = "text";
 
-let productos = [];
+      const btnAdd = document.createElement("button");
+      btnAdd.type = "button";
+      btnAdd.classList.add("btnModal", "px-3", "mb-0");
+      btnAdd.textContent = "+";
 
-const contenedorProducts = document.getElementById("productsProduct");
+      const input = document.createElement("input");
+      input.type = "text";
 
-const verProducts = () => {
+      span.appendChild(input1);
+      span.appendChild(btnAdd);
+      span.appendChild(input);
 
-fetch(URL)
-.then(response => response.json())
-.then(activProd => {
-    activProd.forEach((productsProduct) => {
-    const div = document.createElement('div')
-    div.className = "card-img-top"
-    div.style = "width: 18rem"
-    div.innerHTML = `
-                    <img src=${productsProduct.img} class="card-img-top" alt="...">
-                    <div class="card-body mb-4">
-                        <h5 class="card-title grande">${productsProduct.nombreProduct}</h5>
-                        <h6 class="card-title grande">${productsProduct.stock}</h6>
-                        <h6 class="card-title grande">${productsProduct.precio}</h6>
-                        <span class="span__products-input"><input type="text">
-                        <button id="${productsProduct.id}" class="btnModal px-3 mb-0">+</button>
-                        <input type="text">
-                        </span>
-                    </div>
-                `;
-    contenedorProducts.appendChild(div);
+      cardBody.appendChild(labelNameProduct);
+      cardBody.appendChild(labelStockProduct);
+      cardBody.appendChild(labelPriceProduct);
+      cardBody.appendChild(span);
+      containerCard.appendChild(imgProduct);
+      containerCard.appendChild(cardBody);
 
-        document.getElementById(productsProduct.id).addEventListener("click", (e) =>{
-        e.preventDefault();
-        modalContainerProductos.classList.toggle("modalProductosActive");
-
-        const contenedorDescripcion = document.getElementById("descriptionProducts");
-
-        contenedorDescripcion.innerHTML = `
-                                            <div>
-                                                <h3 style= "color: rgb(7, 167, 153)"><strong>${productsProduct.nombreProduct}</strong></h3>
-                                                <br>
-                                                <img src="${productsProduct.img}" class="img-fluid"><br><br>
-                                            </div>
-                                            `;
-        });
+      containerProducts.appendChild(containerCard);
     });
+  };
+
+  setTimeout(() => {
+    renderProducts();
+  }, 500);
 });
-}
-}) 
