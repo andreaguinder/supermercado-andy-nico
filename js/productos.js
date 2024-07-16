@@ -66,18 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
       span.type = "text";
       span.classList.add("span__products-input");
 
-      const input1 = document.createElement("input");
-      input1.type = "text";
-
       const btnAdd = document.createElement("button");
       btnAdd.type = "button";
+      btnAdd.id = "btnAdd";
       btnAdd.classList.add("btnModal", "px-3", "mb-0");
       btnAdd.textContent = "+";
 
       const input = document.createElement("input");
       input.type = "text";
+      input.placeholder = 0;
 
-      span.appendChild(input1);
       span.appendChild(btnAdd);
       span.appendChild(input);
 
@@ -89,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
       containerCard.appendChild(cardBody);
 
       containerProducts.appendChild(containerCard);
+      btnAdd.addEventListener("click", () => {
+        console.log("Agregaste un producto");
+      });
     });
   };
 
