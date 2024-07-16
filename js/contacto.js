@@ -6,22 +6,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailValue = document.getElementById("email");
   const phoneValue = document.getElementById("phone");
   const messageValue = document.getElementById("message");
+
+  const fields = [
+    nameValue.value.trim(),
+    surnameValue.value.trim(),
+    emailValue.value.trim(),
+    phoneValue.value.trim(),
+    messageValue.value.trim(),
+  ];
+
   const validateForm = () => {
-    if (nameValue.value.trim() === "") {
-      const errorMessage = document.createElement("span");
-      errorMessage.classList.add("errorMensaje");
-      errorMessage.textContent = "Todos los campos son obligatorios";
+    fields.forEach((value) => {
+      if (value === "") {
+        const errorMessage = document.createElement("span");
+        errorMessage.classList.add("errorMensaje");
+        errorMessage.textContent = "Todos los campos son obligatorios";
 
-      form.appendChild(errorMessage);
+        form.appendChild(errorMessage);
 
-      setTimeout(() => {
-        errorMessage.remove();
-      }, 1500);
-
-      return;
-    }
-    // Aquí puedes llamar a otra función como `renderModal()` si todos los campos están validados
-    renderModal();
+        setTimeout(() => {
+          errorMessage.remove();
+        }, 1500);
+        return;
+      } else {
+        renderModal();
+      }
+    });
   };
 
   const renderModal = () => {
