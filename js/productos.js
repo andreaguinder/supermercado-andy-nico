@@ -121,12 +121,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       btnAdd.addEventListener("click", () => {
         let currentValue = parseInt(input.value) || 0;
-        if (stockProducts[index] > 0) {
+
+        if (currentValue < stockProducts[index]) {
           input.value = currentValue + 1;
           stockProducts[index]--;
           labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
+
+          if (stockProducts[index] === 0) {
+            containerCard.classList.add("card-disabled");
+          }
         } else {
           renderModal();
+          containerCard.classList.add("card-disabled");
+          btnAdd.disabled = true;
         }
       });
     });
