@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalConfirm = document.createElement("div");
     modalConfirm.classList.add("modalForm");
 
-    const buttonModal = document.createElement("button");
-    buttonModal.type = "button";
+    const buttonAbort = document.createElement("button");
+    buttonAbort.type = "button";
     buttonAbort.classList.add("btnModal", "pt-2", "px-3");
     buttonAbort.textContent = "Cancelar";
     buttonAbort.id = "cerrarModal";
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonConfirm.classList.add("btnModal", "pt-2", "px-3");
     buttonConfirm.textContent = "Agregar";
 
-    buttonModal.addEventListener("click", () => {
+    buttonAbort.addEventListener("click", () => {
       containerModal.remove();
     });
 
@@ -101,7 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
     labelTotalPrice.classList.add("card-title", "grande");
     labelTotalPrice.textContent = "$2500";
 
-    modalConfirm.appendChild(buttonModal);
+    modalConfirm.appendChild(buttonAbort);
+    modalConfirm.appendChild(buttonConfirm);
     modalConfirm.appendChild(labelName);
     modalConfirm.appendChild(labelStock);
     modalConfirm.appendChild(labelTotalPrice);
