@@ -117,10 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
       span.appendChild(input);
       span.appendChild(btnAdd);
 
+      const btnAddToCart = document.createElement("button");
+      btnAddToCart.type = "button";
+      btnAddToCart.classList.add("btnModal", "px-3", "mb-0");
+      btnAddToCart.textContent = "Agregar al carrito";
+
       cardBody.appendChild(labelNameProduct);
       cardBody.appendChild(labelStockProduct);
       cardBody.appendChild(labelPriceProduct);
       cardBody.appendChild(span);
+      cardBody.appendChild(btnAddToCart);
       containerCard.appendChild(imgProduct);
       containerCard.appendChild(cardBody);
 
@@ -128,6 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       btnRemove.addEventListener("click", () => {
         let currentValue = parseInt(input.value) || 0;
+        if (currentValue > 0) {
+          input.value = currentValue - 1;
+          stockProducts[index]++;
+          labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
+          containerCard.classList.remove("card-disabled");
+        }
       });
 
       btnAdd.addEventListener("click", () => {
@@ -139,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (stockProducts[index] === 0) {
             containerCard.classList.add("card-disabled");
-            btnAdd.disabled = true;
             renderModal();
           }
         }
