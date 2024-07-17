@@ -202,6 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       btnAddToCart.addEventListener("click", () => {
+        let currentValue = parseInt(input.value) || 0;
+        if (currentValue === 0) {
+          btnAddToCart.disabled = true;
+        }
         orderConfirmationModal();
       });
     });
