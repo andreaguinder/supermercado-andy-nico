@@ -702,6 +702,11 @@ marquee {
   margin: 10px 10px;
 }
 
+.card-disabled {
+  background-color: #d3d3d3;
+  opacity: 0.6;
+}
+
 /*modal formulario*/
 
 .modalFormularioExitoso {
@@ -804,4 +809,3 @@ marquee {
   }
 }
 /*fin formulario de contacto */
-
