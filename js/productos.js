@@ -96,6 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
       span.type = "text";
       span.classList.add("span__products-input");
 
+      const btnRemove = document.createElement("button");
+      btnRemove.type = "button";
+      btnRemove.id = `btnAdd-${index}`;
+      btnRemove.classList.add("btnModal", "px-3", "mb-0");
+      btnRemove.textContent = "-";
+
       const btnAdd = document.createElement("button");
       btnAdd.type = "button";
       btnAdd.id = `btnAdd-${index}`;
@@ -107,8 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
       input.placeholder = 0;
       input.id = `input-${index}`;
 
-      span.appendChild(btnAdd);
+      span.appendChild(btnRemove);
       span.appendChild(input);
+      span.appendChild(btnAdd);
 
       cardBody.appendChild(labelNameProduct);
       cardBody.appendChild(labelStockProduct);
@@ -119,21 +126,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       containerProducts.appendChild(containerCard);
 
+      btnRemove.addEventListener("click", () => {
+        let currentValue = parseInt();
+      });
+
       btnAdd.addEventListener("click", () => {
         let currentValue = parseInt(input.value) || 0;
-
-        if (currentValue < stockProducts[index]) {
+        if (stockProducts[index] > 0) {
           input.value = currentValue + 1;
           stockProducts[index]--;
           labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
 
           if (stockProducts[index] === 0) {
             containerCard.classList.add("card-disabled");
+            renderModal();
           }
-        } else {
-          renderModal();
-          containerCard.classList.add("card-disabled");
-          btnAdd.disabled = true;
         }
       });
     });
