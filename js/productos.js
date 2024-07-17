@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "../images/coca-cola.webp",
   ];
 
-  const renderModal = () => {
+  const renderModalNotificaction = () => {
     const containerModal = document.createElement("div");
     containerModal.classList.add("modalContainerExito");
 
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalForm.classList.add("modalForm");
 
     const buttonModal = document.createElement("button");
+    buttonModal.type = "button";
     buttonModal.classList.add("btnModal", "pt-2", "px-3");
     buttonModal.id = "cerrarModal";
 
@@ -62,6 +63,50 @@ document.addEventListener("DOMContentLoaded", () => {
     modalForm.appendChild(buttonModal);
     modalForm.appendChild(message);
     containerModal.appendChild(modalForm);
+
+    document.body.appendChild(containerModal);
+  };
+
+  const orderConfirmationModal = () => {
+    const containerModal = document.createElement("div");
+    containerModal.classList.add("modalContainerExito");
+
+    const modalConfirm = document.createElement("div");
+    modalConfirm.classList.add("modalForm");
+
+    const buttonAbort = document.createElement("button");
+    buttonAbort.type = "button";
+    buttonAbort.classList.add("btnModal", "pt-2", "px-3");
+    buttonAbort.textContent = "Cancelar";
+    buttonAbort.id = "cerrarModal";
+
+    const buttonConfirm = document.createElement("button");
+    buttonConfirm.type = "button";
+    buttonConfirm.classList.add("btnModal", "pt-2", "px-3");
+    buttonConfirm.textContent = "Agregar";
+
+    buttonAbort.addEventListener("click", () => {
+      containerModal.remove();
+    });
+
+    const labelName = document.createElement("h5");
+    labelName.classList.add("card-title", "grande");
+    labelName.textContent = "Nombre del Producto";
+
+    const labelStock = document.createElement("h5");
+    labelStock.classList.add("card-title", "grande");
+    labelStock.textContent = "5";
+
+    const labelTotalPrice = document.createElement("h6");
+    labelTotalPrice.classList.add("card-title", "grande");
+    labelTotalPrice.textContent = "$2500";
+
+    modalConfirm.appendChild(buttonAbort);
+    modalConfirm.appendChild(buttonConfirm);
+    modalConfirm.appendChild(labelName);
+    modalConfirm.appendChild(labelStock);
+    modalConfirm.appendChild(labelTotalPrice);
+    containerModal.appendChild(modalConfirm);
 
     document.body.appendChild(containerModal);
   };
@@ -138,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
           input.value = currentValue - 1;
           stockProducts[index]++;
           labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
-          containerCard.classList.remove("card-disabled");
+          //containerCard.classList.remove("card-disabled");
         }
       });
 
@@ -150,10 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
           labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
 
           if (stockProducts[index] === 0) {
-            containerCard.classList.add("card-disabled");
-            renderModal();
+            // containerCard.classList.add("card-disabled");
+            renderModalNotificaction();
           }
         }
+      });
+
+      btnAddToCart.addEventListener("click", () => {
+        orderConfirmationModal();
       });
     });
   };
