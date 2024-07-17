@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       containerProducts.appendChild(containerCard);
 
       btnRemove.addEventListener("click", () => {
-        let currentValue = parseInt();
+        let currentValue = parseInt(input.value) || 0;
       });
 
       btnAdd.addEventListener("click", () => {
@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (stockProducts[index] === 0) {
             containerCard.classList.add("card-disabled");
+            btnAdd.disabled = true;
             renderModal();
           }
         }
