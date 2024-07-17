@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const imagesProducts = [
     "../images/fideos-marolio.webp",
-    "../images/toallitas-nosotras.webp",
+    "../images/toallitas-nosotras_2.webp",
     "../images/tequila.webp",
     "../images/juego-de-bateria.webp",
     "../images/plato-cuadrado.webp",
