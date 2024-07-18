@@ -11,19 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
     "Hueso mordisco",
     "Cubo Rubik",
     "Coca Cola 1L",
+    "Casancrem Light",
+    "Mochila Unicornio",
+    "Alfombra Baño",
   ];
   const priceProducts = [
-    "1100",
-    "640",
     "3500",
+    "5200",
+    "22000",
     "1850",
-    "8500",
-    "6350",
-    "1500",
-    "920",
-    "1350",
+    "120000",
+    "2000",
+    "2000",
+    "6500",
+    "10000",
+    "3700",
+    "18000",
+    "8000",
   ];
-  const stockProducts = [10, 15, 11, 25, 33, 5, 12, 14, 17];
+  const stockProducts = [10, 15, 11, 25, 33, 5, 12, 14, 17, 15, 4, 6];
   const imagesProducts = [
     "../images/fideos-marolio.webp",
     "../images/toallitas-nosotras_2.webp",
@@ -34,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "../images/hueso-mordisco.webp",
     "../images/cubo-rubik.webp",
     "../images/coca-cola.webp",
+    "../images/casancrem-light.webp",
+    "../images/mochila-unicornio.webp",
+    "../images/alfombra-de-banio.webp",
   ];
 
   // Render Modal for Out of Stock Notification
@@ -77,37 +86,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const buttonAbort = document.createElement("button");
     buttonAbort.type = "button";
-    buttonAbort.classList.add("btnModal", "pt-2", "px-3");
+    buttonAbort.classList.add("btnModal", "pt-2", "px-3", "mx-2");
     buttonAbort.textContent = "Cancelar";
     buttonAbort.id = "cerrarModal";
 
     const buttonConfirm = document.createElement("button");
     buttonConfirm.type = "button";
-    buttonConfirm.classList.add("btnModal", "pt-2", "px-3");
+    buttonConfirm.classList.add("btnModal", "pt-2", "px-3", "mx-2");
     buttonConfirm.textContent = "Agregar";
 
     buttonAbort.addEventListener("click", () => {
       containerModal.remove();
     });
 
-    const labelName = document.createElement("h5");
+    const labelName = document.createElement("h4");
     labelName.classList.add("card-title", "grande");
     labelName.textContent = "Nombre del Producto";
 
-    const labelStock = document.createElement("h5");
+    const labelStock = document.createElement("h6");
     labelStock.classList.add("card-title", "grande");
-    labelStock.textContent = "5";
+    labelStock.textContent = "Stock 5 U.";
 
-    const labelTotalPrice = document.createElement("h6");
+    const labelTotalPrice = document.createElement("h5");
     labelTotalPrice.classList.add("card-title", "grande");
     labelTotalPrice.textContent = "$2500";
 
-    modalConfirm.appendChild(buttonAbort);
-    modalConfirm.appendChild(buttonConfirm);
+
     modalConfirm.appendChild(labelName);
     modalConfirm.appendChild(labelStock);
     modalConfirm.appendChild(labelTotalPrice);
     containerModal.appendChild(modalConfirm);
+    modalConfirm.appendChild(buttonConfirm);
+    modalConfirm.appendChild(buttonAbort);
 
     document.body.appendChild(containerModal);
   };
