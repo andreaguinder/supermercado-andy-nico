@@ -1,4 +1,4 @@
-import { saveProduct } from "../js/utis/saveProduct.js";
+
 // Datos del producto
 
 const containerProducts = document.getElementById("productsProduct");
@@ -124,8 +124,18 @@ const renderModalConfirmation = (
   labelTotalPrice.textContent = `$${productTotalPrice}`;
 
   buttonConfirm.addEventListener("click", () => {
-    saveProduct(productName, selectedQuantity, productTotalPrice);
-    console.log(productName, selectedQuantity, productTotalPrice);
+
+    const purchase = [
+      productName,
+      selectedQuantity,
+      productTotalPrice
+    ];
+
+ console.log(purchase);
+
+ localStorage.setItem('purchase', JSON.stringify(purchase));
+
+    
   });
 
   // Agregar elementos
