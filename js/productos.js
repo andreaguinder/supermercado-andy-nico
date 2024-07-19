@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+import fs from "node:fs";
 
+document.addEventListener("DOMContentLoaded", () => {
   // Datos del producto
 
   const containerProducts = document.getElementById("productsProduct");
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Renderizar modal de notificación de stock agotado
 
   const renderModalNotification = () => {
-
     // Crear elementos
     const containerModal = document.createElement("div");
     containerModal.classList.add("modalContainerExito");
@@ -83,10 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(containerModal);
   };
 
-    // Renderizar modal de confirmación de pedido
+  // Renderizar modal de confirmación de pedido
 
-  const renderModalConfirmation = (productName, selectedQuantity, productTotalPrice) => {
-
+  const renderModalConfirmation = (
+    productName,
+    selectedQuantity,
+    productTotalPrice,
+  ) => {
     // Crear elementos
 
     const containerModal = document.createElement("div");
@@ -113,14 +116,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const labelName = document.createElement("h4");
     labelName.classList.add("card-title", "grande");
     labelName.textContent = productName;
-  
+
     const labelStock = document.createElement("h6");
     labelStock.classList.add("card-title", "grande");
     labelStock.textContent = `Stock ${selectedQuantity} U.`;
-  
+
     const labelTotalPrice = document.createElement("h5");
     labelTotalPrice.classList.add("card-title", "grande");
     labelTotalPrice.textContent = `$${productTotalPrice}`;
+
+    buttonConfirm.addEventListener("click", () => {
+      console.log(productName, selectedQuantity, productTotalPrice);
+    });
 
     // Agregar elementos
 
@@ -134,10 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(containerModal);
   };
 
-   // Renderizar modal de advertencia de agregar al menos un producto
+  // Renderizar modal de advertencia de agregar al menos un producto
 
   const renderModalWarning = () => {
-
     // Crear elementos
     const containerModal = document.createElement("div");
     containerModal.classList.add("modalContainerExito");
@@ -173,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderProducts = () => {
     nameProducts.forEach((nameProduct, index) => {
-
       // Crear elementos
       const containerCard = document.createElement("div");
       containerCard.classList.add("card-img-top");
@@ -272,7 +277,11 @@ document.addEventListener("DOMContentLoaded", () => {
           renderModalWarning();
         } else {
           const totalPrice = currentValue * priceProducts[index];
-          renderModalConfirmation(nameProducts[index], currentValue, totalPrice);
+          renderModalConfirmation(
+            nameProducts[index],
+            currentValue,
+            totalPrice,
+          );
         }
       });
     });
