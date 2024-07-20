@@ -1,4 +1,3 @@
-
 // Datos del producto
 
 const containerProducts = document.getElementById("productsProduct");
@@ -124,18 +123,9 @@ const renderModalConfirmation = (
   labelTotalPrice.textContent = `$${productTotalPrice}`;
 
   buttonConfirm.addEventListener("click", () => {
+    const purchase = [productName, selectedQuantity, productTotalPrice];
 
-    const purchase = [
-      productName,
-      selectedQuantity,
-      productTotalPrice
-    ];
-
- console.log(purchase);
-
- localStorage.setItem('purchase', JSON.stringify(purchase));
-
-    
+    localStorage.setItem("purchase", JSON.stringify(purchase));
   });
 
   // Agregar elementos
