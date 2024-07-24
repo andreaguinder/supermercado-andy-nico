@@ -1,0 +1,74 @@
+[
+  {
+    "nombre": "Fideos Marolio",
+    "precio": "3500",
+    "stock": 10,
+    "imagen": "../images/fideos-marolio.webp"
+  },
+  {
+    "nombre": "Toallitas Nosotras",
+    "precio": "5200",
+    "stock": 15,
+    "imagen": "../images/toallitas-nosotras_2.webp"
+  },
+  {
+    "nombre": "Tequila José Cuervo",
+    "precio": "22000",
+    "stock": 11,
+    "imagen": "../images/tequila.webp"
+  },
+  {
+    "nombre": "Juego de Batería x 5",
+    "precio": "1850",
+    "stock": 25,
+    "imagen": "../images/juego-de-bateria.webp"
+  },
+  {
+    "nombre": "Plato cuadrado",
+    "precio": "120000",
+    "stock": 33,
+    "imagen": "../images/plato-cuadrado.webp"
+  },
+  {
+    "nombre": "Plato redondo",
+    "precio": "2000",
+    "stock": 5,
+    "imagen": "../images/plato-redondo.webp"
+  },
+  {
+    "nombre": "Hueso mordisco",
+    "precio": "2000",
+    "stock": 12,
+    "imagen": "../images/hueso-mordisco.webp"
+  },
+  {
+    "nombre": "Cubo Rubik",
+    "precio": "6500",
+    "stock": 14,
+    "imagen": "../images/cubo-rubik.webp"
+  },
+  {
+    "nombre": "Coca Cola 1L",
+    "precio": "10000",
+    "stock": 17,
+    "imagen": "../images/coca-cola.webp"
+  },
+  {
+    "nombre": "Casancrem Light",
+    "precio": "3700",
+    "stock": 15,
+    "imagen": "../images/casancrem-light.webp"
+  },
+  {
+    "nombre": "Mochila Unicornio",
+    "precio": "18000",
+    "stock": 4,
+    "imagen": "../images/mochila-unicornio.webp"
+  },
+  {
+    "nombre": "Alfombra Baño",
+    "precio": "8000",
+    "stock": 6,
+    "imagen": "../images/alfombra-de-banio.webp"
+  }
+]

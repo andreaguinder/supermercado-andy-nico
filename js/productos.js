@@ -1,54 +1,145 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Datos del producto
+  // carga productos
+  const loadProducts = async () => {
+    try {
+      const response = await fetch("../json/products.json");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const products = await response.json();
+      initializeStock(products);
+      renderProducts(products);
+    } catch (error) {
+      console.error(
+        "There has been a problem with your fetch operation:",
+        error,
+      );
+    }
+  };
 
-  const containerProducts = document.getElementById("productsProduct");
-  const nameProducts = [
-    "Fideos Marolio",
-    "Toallitas Nosotras",
-    "Tequila José Cuervo",
-    "Juego de Batería x 5",
-    "Plato cuadrado",
-    "Plato redondo",
-    "Hueso mordisco",
-    "Cubo Rubik",
-    "Coca Cola 1L",
-    "Casancrem Light",
-    "Mochila Unicornio",
-    "Alfombra Baño",
-  ];
-  const priceProducts = [
-    "3500",
-    "5200",
-    "22000",
-    "1850",
-    "120000",
-    "2000",
-    "2000",
-    "6500",
-    "10000",
-    "3700",
-    "18000",
-    "8000",
-  ];
-  const stockProducts = [10, 15, 11, 25, 33, 5, 12, 14, 17, 15, 4, 6];
-  const imagesProducts = [
-    "../images/fideos-marolio.webp",
-    "../images/toallitas-nosotras_2.webp",
-    "../images/tequila.webp",
-    "../images/juego-de-bateria.webp",
-    "../images/plato-cuadrado.webp",
-    "../images/plato-redondo.webp",
-    "../images/hueso-mordisco.webp",
-    "../images/cubo-rubik.webp",
-    "../images/coca-cola.webp",
-    "../images/casancrem-light.webp",
-    "../images/mochila-unicornio.webp",
-    "../images/alfombra-de-banio.webp",
-  ];
+  const initializeStock = (products) => {
+    const storedStock = JSON.parse(localStorage.getItem("stock")) || {};
+    products.forEach((product) => {
+      if (storedStock[product.nombre] !== undefined) {
+        product.stock = storedStock[product.nombre];
+      } else {
+        storedStock[product.nombre] = product.stock;
+      }
+    });
+    localStorage.setItem("stock", JSON.stringify(storedStock));
+  };
 
-  // Renderizar modal de notificación de stock agotado
+  const updateStock = (productName, newStock) => {
+    const storedStock = JSON.parse(localStorage.getItem("stock")) || {};
+    storedStock[productName] = newStock;
+    localStorage.setItem("stock", JSON.stringify(storedStock));
+  };
 
+  // Modal confirmacion pedido
+  const renderModalConfirmation = (
+    productName,
+    selectedQuantity,
+    productTotalPrice,
+    index,
+  ) => {
+    // Crear elementos
+    const containerModal = document.createElement("div");
+    containerModal.classList.add("modalContainerExito");
+
+    const modalConfirm = document.createElement("div");
+    modalConfirm.classList.add("modalForm");
+
+    const buttonAbort = document.createElement("button");
+    buttonAbort.type = "button";
+    buttonAbort.classList.add("btnModal", "pt-2", "px-3", "mx-2");
+    buttonAbort.textContent = "Cancelar";
+
+    const buttonConfirm = document.createElement("button");
+    buttonConfirm.type = "button";
+    buttonConfirm.classList.add("btnModal", "pt-2", "px-3", "mx-2");
+    buttonConfirm.textContent = "Agregar";
+
+    // Agregar eventos
+    buttonAbort.addEventListener("click", () => {
+      containerModal.remove();
+    });
+
+    buttonConfirm.addEventListener("click", () => {
+      // Almacena en local storage
+      let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
+      const purchase = [productName, selectedQuantity, productTotalPrice];
+      let updatePurchases = [...purchases, purchase];
+      localStorage.setItem("purchases", JSON.stringify(updatePurchases));
+
+      modalWarningSucces("Producto agregado!");
+      containerModal.remove();
+
+      // Resetea valor del input
+      const input = document.getElementById(`input-${index}`);
+      if (input) {
+        input.value = 0;
+      } else {
+        console.error(`Input con ID input-${index} no encontrado.`);
+      }
+    });
+
+    // Crear y agregar elementos de texto
+    const labelName = document.createElement("h4");
+    labelName.classList.add("card-title", "grande");
+    labelName.textContent = productName;
+
+    const labelStock = document.createElement("h6");
+    labelStock.classList.add("card-title", "grande");
+    labelStock.textContent = `Stock ${selectedQuantity} U.`;
+
+    const labelTotalPrice = document.createElement("h5");
+    labelTotalPrice.classList.add("card-title", "grande");
+    labelTotalPrice.textContent = `$${productTotalPrice}`;
+
+    // Agregar elementos
+    modalConfirm.appendChild(labelName);
+    modalConfirm.appendChild(labelStock);
+    modalConfirm.appendChild(labelTotalPrice);
+    modalConfirm.appendChild(buttonConfirm);
+    modalConfirm.appendChild(buttonAbort);
+
+    containerModal.appendChild(modalConfirm);
+
+    document.body.appendChild(containerModal);
+  };
+
+  // Modal de advertencia  o confirmacion
+  const modalWarningSucces = (text) => {
+    // Crear elementos
+    const containerModal = document.createElement("div");
+    containerModal.classList.add("modalContainerExito");
+
+    const modalWarning = document.createElement("div");
+    modalWarning.classList.add("modalForm");
+
+    const buttonModal = document.createElement("button");
+    buttonModal.type = "button";
+    buttonModal.classList.add("btnModal", "pt-2", "px-3");
+    buttonModal.id = "cerrarModal";
+
+    buttonModal.addEventListener("click", () => {
+      containerModal.remove();
+    });
+
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid", "fa-x");
+
+    const message = document.createElement("h5");
+    message.textContent = text;
+
+    // Agregar elementos
+    buttonModal.appendChild(icon);
+    modalWarning.appendChild(buttonModal);
+    modalWarning.appendChild(message);
+    containerModal.appendChild(modalWarning);
+
+    document.body.appendChild(containerModal);
+  };
   const renderModalNotification = () => {
     // Crear elementos
     const containerModal = document.createElement("div");
@@ -82,129 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(containerModal);
   };
 
-  // Renderizar modal de confirmación de pedido
+  const renderProducts = (products) => {
+    const containerProducts = document.getElementById("productsProduct");
 
-  const renderModalConfirmation = (
-    productName,
-    selectedQuantity,
-    productTotalPrice,
-    index 
-  ) => {
-    // Crear elementos
-
-    const containerModal = document.createElement("div");
-    containerModal.classList.add("modalContainerExito");
-
-    const modalConfirm = document.createElement("div");
-    modalConfirm.classList.add("modalForm");
-
-    const buttonAbort = document.createElement("button");
-    buttonAbort.type = "button";
-    buttonAbort.classList.add("btnModal", "pt-2", "px-3", "mx-2");
-    buttonAbort.textContent = "Cancelar";
-    buttonAbort.id = "cerrarModal";
-
-    const buttonConfirm = document.createElement("button");
-    buttonConfirm.type = "button";
-    buttonConfirm.classList.add("btnModal", "pt-2", "px-3", "mx-2");
-    buttonConfirm.textContent = "Agregar";
-
-    buttonAbort.addEventListener("click", () => {
-      containerModal.remove();
-    });
-
-    const labelName = document.createElement("h4");
-    labelName.classList.add("card-title", "grande");
-    labelName.textContent = productName;
-
-    const labelStock = document.createElement("h6");
-    labelStock.classList.add("card-title", "grande");
-    labelStock.textContent = `Stock ${selectedQuantity} U.`;
-
-    const labelTotalPrice = document.createElement("h5");
-    labelTotalPrice.classList.add("card-title", "grande");
-    labelTotalPrice.textContent = `$${productTotalPrice}`;
-
-    buttonConfirm.addEventListener("click", () => {
-
-      //Almacena en local storage
-
-      let purchases = JSON.parse(localStorage.getItem('purchases')) || [];
-
-      const purchase = [
-        productName,
-        selectedQuantity,
-        productTotalPrice
-      ];
-
-      let updatePurchases = [...purchases, purchase];
-
-      localStorage.setItem('purchases', JSON.stringify(updatePurchases));
-
-      modalWarningSucces("Producto agregado!");
-      
-      containerModal.remove();
-
-      // Resetea valor del input
-      const input = document.getElementById(`input-${index}`);
-      if (input) {
-        input.value = 0;
-      } else {
-        console.error(`Input con ID input-${index} no encontrado.`);
-      }
-
-    });
-
-    // Agregar elementos
-
-    modalConfirm.appendChild(labelName);
-    modalConfirm.appendChild(labelStock);
-    modalConfirm.appendChild(labelTotalPrice);
-    containerModal.appendChild(modalConfirm);
-    modalConfirm.appendChild(buttonConfirm);
-    modalConfirm.appendChild(buttonAbort);
-
-    document.body.appendChild(containerModal);
-  };
-
-  // Renderizar modal de advertencia de agregar al menos un producto o exito
-
-  const modalWarningSucces = (text) => {
-    // Crear elementos
-    const containerModal = document.createElement("div");
-    containerModal.classList.add("modalContainerExito");
-
-    const modalWarning = document.createElement("div");
-    modalWarning.classList.add("modalForm");
-
-    const buttonModal = document.createElement("button");
-    buttonModal.type = "button";
-    buttonModal.classList.add("btnModal", "pt-2", "px-3");
-    buttonModal.id = "cerrarModal";
-
-    buttonModal.addEventListener("click", () => {
-      containerModal.remove();
-    });
-
-    const icon = document.createElement("i");
-    icon.classList.add("fa-solid", "fa-x");
-
-    const message = document.createElement("h5");
-    message.textContent = text
-
-    // Agregar elementos
-    buttonModal.appendChild(icon);
-    modalWarning.appendChild(buttonModal);
-    modalWarning.appendChild(message);
-    containerModal.appendChild(modalWarning);
-
-    document.body.appendChild(containerModal);
-  };
-
-  // Renderizar productos
-
-  const renderProducts = () => {
-    nameProducts.forEach((nameProduct, index) => {
+    products.forEach((product, index) => {
       // Crear elementos
       const containerCard = document.createElement("div");
       containerCard.classList.add("card-img-top");
@@ -212,23 +184,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const imgProduct = document.createElement("img");
       imgProduct.classList.add("card-img-top");
-      imgProduct.src = imagesProducts[index];
-      imgProduct.alt = nameProduct;
+      imgProduct.src = product.imagen;
+      imgProduct.alt = product.nombre;
 
       const cardBody = document.createElement("div");
       cardBody.classList.add("card-body", "mb-4");
 
       const labelNameProduct = document.createElement("h5");
       labelNameProduct.classList.add("card-title", "grande");
-      labelNameProduct.textContent = nameProduct;
+      labelNameProduct.textContent = product.nombre;
 
       const labelStockProduct = document.createElement("h6");
       labelStockProduct.classList.add("card-title", "grande");
       labelStockProduct.id = `stock-${index}`;
-      labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
+      labelStockProduct.textContent = `Stock ${product.stock} unidades`;
 
       const labelPriceProduct = document.createElement("h6");
-      labelPriceProduct.textContent = `$${priceProducts[index]} por unidad`;
+      labelPriceProduct.textContent = `$${product.precio} por unidad`;
 
       const span = document.createElement("span");
       span.type = "text";
@@ -252,8 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
       input.placeholder = 0;
       input.id = `input-${index}`;
 
-      // Agregar elemntos
-
+      // Agregar elementos
       span.appendChild(buttonRemove);
       span.appendChild(input);
       span.appendChild(buttonAdd);
@@ -279,19 +250,21 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentValue = parseInt(input.value) || 0;
         if (currentValue > 0) {
           input.value = currentValue - 1;
-          stockProducts[index]++;
-          labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
+          product.stock++;
+          labelStockProduct.textContent = `Stock ${product.stock} unidades`;
+          updateStock(product.nombre, product.stock);
         }
       });
 
       buttonAdd.addEventListener("click", () => {
         let currentValue = parseInt(input.value) || 0;
-        if (stockProducts[index] > 0) {
+        if (product.stock > 0) {
           input.value = currentValue + 1;
-          stockProducts[index]--;
-          labelStockProduct.textContent = `Stock ${stockProducts[index]} unidades`;
+          product.stock--;
+          labelStockProduct.textContent = `Stock ${product.stock} unidades`;
+          updateStock(product.nombre, product.stock);
 
-          if (stockProducts[index] === 0) {
+          if (product.stock === 0) {
             renderModalNotification();
           }
         }
@@ -302,16 +275,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentValue === 0) {
           modalWarningSucces("Debe agregar al menos un producto");
         } else {
-          const totalPrice = currentValue * priceProducts[index];
-          renderModalConfirmation(nameProducts[index], currentValue, totalPrice,index);
+          const totalPrice = currentValue * product.precio;
+          renderModalConfirmation(
+            product.nombre,
+            currentValue,
+            totalPrice,
+            index,
+          );
         }
       });
     });
   };
 
-  // Render inicial
-  setTimeout(() => {
-    renderProducts();
-  }, 500);
+  loadProducts();
+});
 
-})
