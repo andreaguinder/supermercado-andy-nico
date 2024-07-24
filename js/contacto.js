@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
+  const box3 = document.getElementById("box3");
+  const box4 = document.getElementById("box4");
+  const box5 = document.getElementById("box5");
 
   const nameValue = document.getElementById("name");
   const surnameValue = document.getElementById("surname");
@@ -24,11 +27,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    const regExEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    if (!regExEmail.test(emailValue.value.trim())) {
+      const emailError = document.createElement("span");
+      emailError.classList.add("errorMensaje");
+      isValid = false;
+      emailError.textContent = "Formato no válido";
+      box3.appendChild(emailError);
+      setTimeout(() => {
+        emailError.remove();
+      }, 1500);
+    }
+
+    const regExPhone = /^\d{7,14}$/;
+    if (!regExPhone.test(phoneValue.value.trim())) {
+      const phoneError = document.createElement("span");
+      phoneError.classList.add("errorMensaje");
+      isValid = false;
+
+      phoneError.textContent =
+        "El número de teléfono debe contener solo números";
+      box4.appendChild(phoneError);
+      setTimeout(() => {
+        phoneError.remove();
+      }, 1500);
+    }
+
     if (!isValid) {
       const errorMessage = document.createElement("span");
       errorMessage.classList.add("errorMensaje");
       errorMessage.textContent = "Todos los campos son obligatorios";
-      form.appendChild(errorMessage);
+      box5.appendChild(errorMessage);
 
       setTimeout(() => {
         errorMessage.remove();
