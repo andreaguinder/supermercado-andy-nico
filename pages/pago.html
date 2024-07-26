@@ -23,6 +23,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../css/styles-global.css">
     <!------------Logo en URL------------>
     <link rel="shortcut icon" href="/images/logo-sa.png" type="image/x-icon" />
     <!--------Enlace a FontAwesome---------->
@@ -86,7 +87,104 @@
     </header>
 
     <main>
+      <section>
+      <div class="h1_tienda">Productos de nuestro negocio elegidos</div>
       <div id="titProducts" class="text-center container mt-5"></div>
+      <hr class="hr-espaciadoOtro">
+      <div class="priceTotal">Precio Total de todos<br class="hidden-md hidden-lg"/>  los productos: $100.000</div>
+      <hr class="hr-espaciadoOtro">
+      <div class="priceTotal">Precio Total de con descuento <br class="hidden-md hidden-lg"/> en efectivo de los productos: $80.000</div>
+      <hr class="hr-espaciadoOtro">
+
+      <div class="mediosPagoContainer">
+      <div class="mediosPago"><img src="../images/Medios-de-pago-online-habilitados-en-Argentina.png" alt=""></div>
+      <div class="mediosPago"><img src="../images/hero-asset-desktop-mla-@2x--cbaf0510.png" alt=""></div>
+      <div class="mediosPago"><img src="../images/mobile--578585fe.png" alt=""></div>
+    </div>
+    </section>
+
+              <!------Segunda Sección: Preguntas frecuentes acordion Bootstrap------>
+        
+              <section class="container my-5">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                ¿Cómo realizo el pago si no tengo cuenta de Mercado Libre?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">¡Crear una cuenta es muy fácil! Al momento de
+                                comprar, te
+                                redirigiremos a Mercado
+                                Libre para que la crees. Sólo tenés que ingresar un e-mail, una
+                                clave y continuar
+                                con tu compra.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                ¿Dónde veo el costo de envío y el tiempo de entrega?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">En la página del producto que quieras comprar verás
+                                la opción de
+                                calcular cuándo
+                                llega, con la información sobre el costo de envío y el tiempo de
+                                entrega.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                ¿Puedo pagar en cuotas?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Podrás ver en la página del producto si se puede
+                                pagar en cuotas y
+                                con qué medios. Si
+                                decidís comprarlo, antes de pagar podrás elegir la cantidad de
+                                cuotas y te
+                                informaremos el valor de cada una.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
+                                ¿Cómo puedo realizar cambios y devoluciones?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Los cambios y devoluciones de productos se realizan
+                                a través de
+                                Mercado Libre. Podés
+                                hacerlo en tu computadora o en la aplicación desde la sección Mis
+                                Compras,
+                                seleccionando el producto y luego eligiendo la opción Devolver el
+                                producto. Te
+                                daremos una etiqueta de envío para que imprimas y pegues en el
+                                paquete para llevarlo
+                                al correo ¡y listo!</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+      
+
+
     </main>
 
     <!--------Footer responsive con Grids y media queries-------->

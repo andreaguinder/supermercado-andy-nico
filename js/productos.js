@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let updatePurchases = [...purchases, purchase];
       localStorage.setItem("purchases", JSON.stringify(updatePurchases));
 
-      modalWarningSucces("Producto agregado!");
+      modalWarningSucces("¡Producto agregado!");
       containerModal.remove();
 
       // Resetea valor del input

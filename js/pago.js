@@ -13,8 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     purchases.forEach((purchase) => {
       const [productName, selectedQuantity, productTotalPrice] = purchase;
 
+      
+      const hrEspaciado = document.createElement("hr");
+      hrEspaciado.classList.add("hr-espaciado");
+      
       const purchaseDiv = document.createElement("div");
       purchaseDiv.className = "purchase";
+      hrEspaciado.classList.add("hr-espaciado");
 
       const nameP = document.createElement("p");
       nameP.textContent = `Producto: ${productName}`;
@@ -24,13 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
       quantityP.textContent = `Cantidad: ${selectedQuantity}`;
       purchaseDiv.appendChild(quantityP);
 
-      const priceP = document.createElement("p");
-      priceP.textContent = `Precio Total: ${productTotalPrice}`;
-      purchaseDiv.appendChild(priceP);
 
+      const priceP = document.createElement("p");
+      priceP.classList.add("productos-elegidos");
+
+      priceP.textContent = `Precio Total: $${productTotalPrice}`;
+      purchaseDiv.appendChild(priceP);
+  
+
+
+
+      cartDiv.appendChild(hrEspaciado);
       cartDiv.appendChild(purchaseDiv);
+      cartDiv.appendChild(hrEspaciado);
+
+
 
       containerPurchase.appendChild(cartDiv);
+
     });
   }
 });

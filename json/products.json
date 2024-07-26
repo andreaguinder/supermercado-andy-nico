@@ -19,13 +19,13 @@
   },
   {
     "nombre": "Juego de Batería x 5",
-    "precio": "1850",
+    "precio": "18500",
     "stock": 25,
     "imagen": "../images/juego-de-bateria.webp"
   },
   {
     "nombre": "Plato cuadrado",
-    "precio": "120000",
+    "precio": "2000",
     "stock": 33,
     "imagen": "../images/plato-cuadrado.webp"
   },
@@ -37,7 +37,7 @@
   },
   {
     "nombre": "Hueso mordisco",
-    "precio": "2000",
+    "precio": "5500",
     "stock": 12,
     "imagen": "../images/hueso-mordisco.webp"
   },
@@ -49,7 +49,7 @@
   },
   {
     "nombre": "Coca Cola 1L",
-    "precio": "10000",
+    "precio": "3500",
     "stock": 17,
     "imagen": "../images/coca-cola.webp"
   },

@@ -644,10 +644,6 @@ marquee {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*TODO DESCOMENTAR Y COMETAR ESTO PARA DESAPARECER O APARECER EL MODAL PARA ACTIVARLO CON JS*/
-  /* visibility: visible;
-    opacity: 0;
-    transition: all 0.3s ease-in; */
 }
 
 .modalProductosActive {
@@ -798,6 +794,108 @@ marquee {
   width: 340px;
 }
 
+/* TIENDA */
+.h1_tienda {
+  font-size: 18px;
+  text-align: center;
+  color: #0e1c85;
+  margin-top: 60px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+p .productos-elegidos {
+  font-size: 16px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.purchase {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.hr-espaciado{
+  border: 3px solid #06a2d8;
+}
+
+.hr-espaciadoOtro{
+  border: 3px solid #06a2d8;
+  margin: 30px 15px 30px;
+}
+
+.priceTotal {
+  margin: 0px 10px 30px;
+  text-align: center;
+ }
+
+   
+.accordion-button{
+  color: #0e1c85;
+  font-size: 16px;
+  background-color: #06a2d8;
+  text-decoration: none;
+}
+
+.accordion-body{
+  color: #51c2f1;
+  font-size: 16px;
+  text-align: justify;
+  background-color: #FFFFFF;
+}
+
+.accordion-item{
+  background-color: #06a2d8;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #06a2d8;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+  border: none;
+}
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 0;
+  border: none;
+  background: #FFFFFF;
+}
+
+.accordion-button.collapsed {
+  border: none;
+  background-color: #FFFFFF;
+  color: #06a2d8;
+}
+.accordion-button:focus {
+  z-index: 3;
+  border-color: #0e1c85;
+  outline: 0;
+  /*
+  box-shadow: $shadow-all-border;
+  */
+}
+
+.accordion-button:not(.collapsed)::after {
+  color: #06a2d8;
+  transform: rotate(-180deg);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#06a2d8'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.accordion-flush .accordion-item .accordion-button::before{
+  border: none;
+}
+.accordion-flush .accordion-item .accordion-button::after{
+  border: none;
+}
+
+.mediosPagoContainer{
+  display: flex;
+  flex-direction: column;
+}
+.mediosPago img{
+  width: 98%;
+  margin: auto;
+}
 @media only screen and (min-width: 767px) {
   .container__Form {
     width: 600px;
@@ -807,5 +905,109 @@ marquee {
   .form-control {
     width: 570px;
   }
+
+  /*TIENDA*/
+
+  
+.accordion-button{
+  color: #0e1c85;
+  font-size: 16px;
+  background-color: #06a2d8;
+  text-decoration: none;
+}
+
+.accordion-body{
+  color: #51c2f1;
+  font-size: 16px;
+  text-align: justify;
+  background-color: #FFFFFF;
+}
+
+.accordion-item{
+  background-color: #06a2d8;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #06a2d8;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+  border: none;
+}
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 0;
+  border: none;
+  background: #FFFFFF;
+}
+
+.accordion-button.collapsed {
+  border: none;
+  background-color: #FFFFFF;
+  color: #06a2d8;
+}
+.accordion-button:focus {
+  z-index: 3;
+  border-color: #0e1c85;
+  outline: 0;
+  /*
+  box-shadow: $shadow-all-border;
+  */
+}
+
+.accordion-button:not(.collapsed)::after {
+  color: #06a2d8;
+  transform: rotate(-180deg);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#06a2d8'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.accordion-flush .accordion-item .accordion-button::before{
+  border: none;
+}
+.accordion-flush .accordion-item .accordion-button::after{
+  border: none;
+}
+
+  .h1_tienda {
+    font-size: 30px;
+    text-align: left;
+    color: #0e1c85;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    margin-left: 90px;
+    text-decoration: underline;
+  }
+
+  p .productos-elegidos {
+    font-size: 16px;
+    text-align: left;
+    margin-left:10px;
+  }
+
+  .purchase {
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  .hr-espaciado{
+    border: 3px solid #06a2d8;
+  }
+
+  .hr-espaciadoOtro{
+    border: 3px solid #06a2d8;
+    margin: 30px 75px 30px;
+  }
+
+  .mediosPagoContainer{
+    flex-direction: row;
+  }
+
+  .mediosPago img {
+    width: 98%;
+    margin: 30px 62px 30px;
+    height: 200px;
+}
+.priceTotal {
+  margin: 30px 85px 30px;
+  text-align: left;
+ }
 }
 /*fin formulario de contacto */
