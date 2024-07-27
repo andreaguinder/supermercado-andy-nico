@@ -91,7 +91,7 @@
       <div class="h1_tienda">Productos de nuestro negocio elegidos</div>
       <div id="titProducts" class="text-center container mt-5"></div>
       <hr class="hr-espaciadoOtro">
-      <div class="priceTotal">Precio Total de todos<br class="hidden-md hidden-lg"/>  los productos: $100.000</div>
+      <div id="priceTotal" class="priceTotal">Precio Total de todos<br class="hidden-md hidden-lg"/>  los productos: $100.000</div>
       <hr class="hr-espaciadoOtro">
       <div class="priceTotal">Precio Total de con descuento <br class="hidden-md hidden-lg"/> en efectivo de los productos: $80.000</div>
       <hr class="hr-espaciadoOtro">
@@ -117,8 +117,8 @@
                 <p class="envio-gratis">¡Envío gratis!</p>
 
                 <div class="botonesDeEnvio">
-                <button class="btnModal"  type="submit"> Confirmar<br>compra </button>
-                <button class="btnModal" type="reset" id="btn-reset"> Cancelar<br>compra </button>
+                <button id="buttonConfirmar" class="btnModal"> Confirmar<br>compra </button>
+                <button id="buttonCancelar" class="btnModal" id="btn-reset"> Cancelar<br>compra </button>
               </div>
               </section>
 
@@ -258,7 +258,7 @@
     <!--------JavaScript Propio---------->
     <script src="../js/index.js"></script>
     <script src="../js/pago.js"></script>
-    <script src="../js/productos.js"></script>
+
   </body>
 </html>
 

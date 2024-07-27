@@ -195,6 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderProducts = (products) => {
     const containerProducts = document.getElementById("productsProduct");
 
+    if (!containerProducts) {
+      console.error('El contenedor de productos no se encontró en el DOM.');
+      return;
+    }
     products.forEach((product, index) => {
       // Crear elementos
       const containerCard = document.createElement("div");
