@@ -27,6 +27,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    const regExName = /^\d{7,14}$/;
+    if (!regExName.test(nameValue.value.trim())) {
+      const nameError = document.createElement("span");
+      nameError.classList.add("errorMensaje");
+      isValid = false;
+
+      nameError.textContent =
+        "Debe ingresar un nombre";
+      box1.appendChild(nameError);
+      setTimeout(() => {
+        nameError.remove();
+      }, 1500);
+    }
+
+    const regExSurname = /^\d{7,14}$/;
+    if (!regExSurname.test(surnameValue.value.trim())) {
+      const surnameError = document.createElement("span");
+      surnameError.classList.add("errorMensaje");
+      isValid = false;
+
+      surnameError.textContent =
+        "Debe ingresar un apellido";
+      box2.appendChild(surnameError);
+      setTimeout(() => {
+        surnameError.remove();
+      }, 1500);
+    }
+
     const regExEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     if (!regExEmail.test(emailValue.value.trim())) {
       const emailError = document.createElement("span");
@@ -46,12 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
 
       phoneError.textContent =
-        "El número de teléfono debe contener solo números";
+        "Debe contener solo números";
       box4.appendChild(phoneError);
       setTimeout(() => {
         phoneError.remove();
       }, 1500);
     }
+
+
 
     if (!isValid) {
       const errorMessage = document.createElement("span");

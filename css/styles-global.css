@@ -793,10 +793,11 @@ marquee {
 #form {
   width: 340px;
 }
+  /*fin formulario de contacto */
 
 /* TIENDA */
 .h1_tienda {
-  font-size: 18px;
+  font-size: 27px;
   text-align: center;
   color: #0e1c85;
   margin-top: 60px;
@@ -870,9 +871,6 @@ p .productos-elegidos {
   z-index: 3;
   border-color: #0e1c85;
   outline: 0;
-  /*
-  box-shadow: $shadow-all-border;
-  */
 }
 
 .accordion-button:not(.collapsed)::after {
@@ -896,7 +894,39 @@ p .productos-elegidos {
   width: 98%;
   margin: auto;
 }
+
+.direccion{
+  display:flex;
+  flex-direction: column;
+}
+.direccion div {
+  font-size: 16px;
+  color: #585656;
+  background-color: #eeeeee;
+  border: 2px solid #585656;
+  border-radius: 5px;
+  padding: 20px;
+  width: 320px;
+  margin: 20px auto;
+
+}
+
+.envio-gratis {
+  font-size: 28px;
+  color: #0e1c85;
+  font-weight: 700;
+  margin: 10px auto 30px;
+  text-align: center;
+}
+
+.botonesDeEnvio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 @media only screen and (min-width: 767px) {
+  
   .container__Form {
     width: 600px;
     margin: 30px 30px;
@@ -906,9 +936,16 @@ p .productos-elegidos {
     width: 570px;
   }
 
+  /*fin formulario de contacto */
+
   /*TIENDA*/
 
   
+.direccion{
+  display:flex;
+  flex-direction: row;
+}
+
 .accordion-button{
   color: #0e1c85;
   font-size: 16px;
@@ -948,9 +985,6 @@ p .productos-elegidos {
   z-index: 3;
   border-color: #0e1c85;
   outline: 0;
-  /*
-  box-shadow: $shadow-all-border;
-  */
 }
 
 .accordion-button:not(.collapsed)::after {
@@ -1010,4 +1044,4 @@ p .productos-elegidos {
   text-align: left;
  }
 }
-/*fin formulario de contacto */
+

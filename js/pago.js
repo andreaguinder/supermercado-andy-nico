@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const hrEspaciado = document.createElement("hr");
       hrEspaciado.classList.add("hr-espaciado");
-      
+
       const purchaseDiv = document.createElement("div");
       purchaseDiv.className = "purchase";
       hrEspaciado.classList.add("hr-espaciado");
@@ -49,4 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
   }
+  
 });
+
+
