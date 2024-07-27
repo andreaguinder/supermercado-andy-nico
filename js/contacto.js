@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
+  const box1 = document.getElementById("box1");
+  const box2 = document.getElementById("box2");
   const box3 = document.getElementById("box3");
   const box4 = document.getElementById("box4");
   const box5 = document.getElementById("box5");
@@ -27,28 +29,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const regExName = /^\d{7,14}$/;
+    const regExName = /^[a-zA-Z\s]{1,10}$/;
     if (!regExName.test(nameValue.value.trim())) {
       const nameError = document.createElement("span");
       nameError.classList.add("errorMensaje");
       isValid = false;
 
-      nameError.textContent =
-        "Debe ingresar un nombre";
+      nameError.textContent = "Debe ingresar un nombre";
       box1.appendChild(nameError);
       setTimeout(() => {
         nameError.remove();
       }, 1500);
     }
 
-    const regExSurname = /^\d{7,14}$/;
+    const regExSurname = /^[a-zA-Z\s]{1,10}$/;
     if (!regExSurname.test(surnameValue.value.trim())) {
       const surnameError = document.createElement("span");
       surnameError.classList.add("errorMensaje");
       isValid = false;
 
-      surnameError.textContent =
-        "Debe ingresar un apellido";
+      surnameError.textContent = "Debe ingresar un apellido";
       box2.appendChild(surnameError);
       setTimeout(() => {
         surnameError.remove();
@@ -73,15 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
       phoneError.classList.add("errorMensaje");
       isValid = false;
 
-      phoneError.textContent =
-        "Debe contener solo números";
+      phoneError.textContent = "Debe contener solo números";
       box4.appendChild(phoneError);
       setTimeout(() => {
         phoneError.remove();
       }, 1500);
     }
-
-
 
     if (!isValid) {
       const errorMessage = document.createElement("span");
