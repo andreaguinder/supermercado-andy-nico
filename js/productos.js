@@ -67,9 +67,28 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonConfirm.addEventListener("click", () => {
       // Almacena en local storage
       let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
-      const purchase = [productName, selectedQuantity, productTotalPrice];
-      let updatePurchases = [...purchases, purchase];
-      localStorage.setItem("purchases", JSON.stringify(updatePurchases));
+
+      // Variable para verificar si el producto ya existe
+      let productExists = false;
+
+      // Iterar sobre el array de compras para encontrar el producto existente
+      for (let i = 0; i < purchases.length; i++) {
+        if (purchases[i][0] === productName) {
+          // Producto encontrado, actualizar cantidad y precio total
+          purchases[i][1] += selectedQuantity;
+          purchases[i][2] += productTotalPrice;
+          productExists = true;
+        }
+      }
+
+      // Si el producto no existe en el carrito, agregarlo
+      if (!productExists) {
+        const purchase = [productName, selectedQuantity, productTotalPrice];
+        purchases.push(purchase);
+      }
+
+      // Actualiza el localStorage
+      localStorage.setItem("purchases", JSON.stringify(purchases));
 
       modalWarningSucces("¡Producto agregado!");
       containerModal.remove();
@@ -289,4 +308,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadProducts();
 });
-
