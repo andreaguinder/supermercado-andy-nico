@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const regExName = /^[a-zA-Z\s]{1,10}$/;
+    const regExName = /^[a-zA-Z\s]{4,30}$/;
     if (!regExName.test(nameValue.value.trim())) {
       const nameError = document.createElement("span");
       nameError.classList.add("errorMensaje");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1500);
     }
 
-    const regExSurname = /^[a-zA-Z\s]{1,10}$/;
+    const regExSurname = /^[a-zA-Z\s]{4,30}$/;
     if (!regExSurname.test(surnameValue.value.trim())) {
       const surnameError = document.createElement("span");
       surnameError.classList.add("errorMensaje");
