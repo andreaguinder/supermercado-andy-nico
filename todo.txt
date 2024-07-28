@@ -1,6 +1,6 @@
-1 que los precios de productos se sumen
-2 que los precios de producto tengan 20% de descuento solo si pasa los 100.000 pesos
-3 formulario: que no se repita el mensaje de error de nombre y apellido x
+1 que los precios de productos se sumen (x)
+2 que los precios de producto tengan 20% de descuento solo si pasa los 100.000 pesos (x)
+3 formulario: que no se repita el mensaje de error de nombre y apellido (x)
 4 que se vacie los productos al cancelar compra
 5 agregar la compra en el txt guardarla
 6 guardar la informacion del formulario en un txt
