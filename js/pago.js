@@ -5,17 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cartDiv = document.createElement("div");
 
-  const priceTotal = document.getElementById("priceTotal");
   if (purchases.length === 0) {
     const messageText = document.createElement("p");
     messageText.textContent = "El carrito está vacío.";
     containerPurchase.appendChild(messageText);
   } else {
-    
     let sumaTotal = purchases.reduce((acumulador, purchase) => {
       const [productName, selectedQuantity, productTotalPrice] = purchase;
       return acumulador + productTotalPrice;
     }, 0);
+
+    let precioSinDescuento = sumaTotal;
 
     // Aplicar descuento del 20% si el total supera los 100,000
     let descuento = 0;
@@ -26,13 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     purchases.forEach((purchase) => {
       const [productName, selectedQuantity, productTotalPrice] = purchase;
-      
+
       const hrEspaciado = document.createElement("hr");
       hrEspaciado.classList.add("hr-espaciado");
 
       const purchaseDiv = document.createElement("div");
       purchaseDiv.className = "purchase";
-      hrEspaciado.classList.add("hr-espaciado");
 
       const nameP = document.createElement("p");
       nameP.textContent = `Producto: ${productName}`;
@@ -55,20 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalDiv = document.createElement("div");
     totalDiv.className = "total";
 
+    // Actualizar el elemento con id discount
+    const discountP = document.getElementById("discount");
     if (descuento > 0) {
       const descuentoP = document.createElement("p");
       descuentoP.textContent = `Descuento aplicado: $${descuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-      totalDiv.appendChild(descuentoP);
+      discountP.appendChild(descuentoP);
     }
 
-    const totalP = document.createElement("p");
-    totalP.textContent = `Precio Final: $${sumaTotal.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    totalDiv.appendChild(totalP);
-
-    cartDiv.appendChild(totalDiv);
     containerPurchase.appendChild(cartDiv);
 
-    const buttonConfirmar = document.getElementById("buttonConfirmar");
+    const priceTotal = document.getElementById('priceTotal');
+    priceTotal.textContent = `Precio Total sin descuento: $${precioSinDescuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    // Actualizar el elemento priceTotal
+    const priceDiscount = document.getElementById("priceDiscount");
+    if (priceDiscount) {
+      priceDiscount.textContent = `Precio Total con descuento aplicado: $${sumaTotal.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
 
     // Crear modal confirmación de compra
     const renderModalNotification = () => {
@@ -78,37 +81,31 @@ document.addEventListener("DOMContentLoaded", () => {
       const modalNotification = document.createElement("div");
       modalNotification.classList.add("modalForm");
 
-      const buttonModal = document.createElement("button");
-      buttonModal.type = "button";
-      buttonModal.classList.add("btnModal", "pt-2", "px-3");
-      buttonModal.id = "cerrarModal";
-
-      buttonModal.addEventListener("click", () => {
-        containerModal.remove();
-      });
-
       const icon = document.createElement("i");
       icon.classList.add("fa-solid", "fa-x");
-
-      const cancelarCompra = document.getElementById("btn-reset");
-
-      cancelarCompra.addEventListener("click", function (){
-        localStorage.removeItem("purchases");
+      icon.addEventListener("click", () => {
+        document.body.removeChild(containerModal);
       });
 
       const message = document.createElement("h5");
       message.textContent = "¡Gracias por tu compra! Te enviaremos el código de seguimiento lo antes posible por email.";
 
-      buttonModal.appendChild(icon);
-      modalNotification.appendChild(buttonModal);
+      modalNotification.appendChild(icon);
       modalNotification.appendChild(message);
       containerModal.appendChild(modalNotification);
-
       document.body.appendChild(containerModal);
     };
 
-    buttonConfirmar.addEventListener("click", function(){
+    const buttonConfirm = document.getElementById("buttonConfirm");
+    const buttonAbort = document.getElementById("buttonAbort");
+
+    buttonConfirm.addEventListener("click", () => {
+
       renderModalNotification();
+    });
+    buttonAbort.addEventListener("click", () => {
+      localStorage.clear();
+      location.reload();
     });
   }
 });
