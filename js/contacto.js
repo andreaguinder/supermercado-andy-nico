@@ -20,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     messageValue,
   ];
 
-  const validateForm = () => {
+  //Validacion formulario
+
+  function validateForm() {
     let isValid = true;
 
     fields.forEach((field) => {
@@ -29,19 +31,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+
+    // Validaciones de campos con expresiones regulares
+
     const regExName = /^[a-zA-Z\s]{4,30}$/;
     if (!regExName.test(nameValue.value.trim())) {
       const nameError = document.createElement("span");
       nameError.classList.add("errorMensaje");
       isValid = false;
 
+      // Muestra mensaje error
       nameError.textContent = "Debe ingresar un nombre";
       box1.appendChild(nameError);
+
+      // Borra mensaje despues de un segundo y medio
       setTimeout(() => {
         nameError.remove();
       }, 1500);
     }
 
+    
     const regExSurname = /^[a-zA-Z\s]{4,30}$/;
     if (!regExSurname.test(surnameValue.value.trim())) {
       const surnameError = document.createElement("span");
@@ -96,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderModal();
   };
 
+  // Renderiza modal
   const renderModal = () => {
     const containerModal = document.createElement("div");
     containerModal.classList.add("modalContainerExito");
@@ -126,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(containerModal);
   };
 
+  // Resetea el formulario
   const resetForm = () => {
     fields.forEach((field) => {
       field.value = "";
