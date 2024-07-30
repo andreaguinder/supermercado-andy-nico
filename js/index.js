@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnToggle = document.getElementById("menu-toggle");
 
-    //abre el manu hamburguesa
+    //Abre el manu hamburguesa
     function cambiarClaseMenu(){
         let siteNav = document.getElementById("site__nav");
             siteNav.classList.toggle("site__navAbrir");

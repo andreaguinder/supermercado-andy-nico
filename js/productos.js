@@ -1,41 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // carga productos
+
+  //Carga productos
   const loadProducts = async () => {
     try {
+      // Obtiene productos por peticion fetch
       const response = await fetch("../json/products.json");
+
+      // Verifica la respuesta de la red
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("No se encontro respuesta");
       }
+      // Convierte la respuesta en un objeto JSON
       const products = await response.json();
+
+      // Inicializa el stock de los productos obtenidos
       initializeStock(products);
+
+      // Renderiza los productos
       renderProducts(products);
     } catch (error) {
+
+      // Manejo de errores durante la operacion
       console.error(
-        "There has been a problem with your fetch operation:",
+        "Hubo un problema con la operacion:",
         error,
       );
     }
   };
 
+  // Inicializa el stock de productos en el storage
   const initializeStock = (products) => {
+     // Obtiene el stock de local storage
     const storedStock = JSON.parse(localStorage.getItem("stock")) || {};
+
+    // Itera sobre cada producto
     products.forEach((product) => {
+
+      // Si el stock del producto ya está almacenado, lo asigna al producto
       if (storedStock[product.nombre] !== undefined) {
         product.stock = storedStock[product.nombre];
       } else {
+      // Si el stock del producto no está almacenado, lo agrega al objeto 
         storedStock[product.nombre] = product.stock;
       }
     });
+      // Actualiza el local con el objeto actualizado
     localStorage.setItem("stock", JSON.stringify(storedStock));
   };
 
+  // Actualiza el stock de un producto específico en el local storage
   const updateStock = (productName, newStock) => {
+    // Obtiene el stock almacenado
     const storedStock = JSON.parse(localStorage.getItem("stock")) || {};
+
+    // Actualiza el stock del producto
     storedStock[productName] = newStock;
+
+     // Guarda el objeto actualizado
     localStorage.setItem("stock", JSON.stringify(storedStock));
   };
 
-  // Modal confirmacion pedido
+   // Renderiza un modal de confirmación de pedido
   const renderModalConfirmation = (
     productName,
     selectedQuantity,
@@ -127,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(containerModal);
   };
 
-  // Modal de advertencia  o confirmacion
+  // Modal de advertencia  o confirmacion recibe text por parametro
   const modalWarningSucces = (text) => {
     // Crear elementos
     const containerModal = document.createElement("div");
