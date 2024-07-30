@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       phoneError.classList.add("errorMensaje");
       isValid = false;
 
-      phoneError.textContent = "Debe contener solo números";
+      phoneError.textContent = "Min 7 - Max 14 números";
       box4.appendChild(phoneError);
       setTimeout(() => {
         phoneError.remove();
@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderModal();
+    saveToContact();
   };
 
   // Renderiza modal
@@ -142,6 +143,25 @@ document.addEventListener("DOMContentLoaded", () => {
       field.value = "";
     });
   };
+
+  const saveToContact = () => {
+    const data = {
+      name: nameValue.value.trim(),
+      surname: surnameValue.value.trim(),
+      email: emailValue.value.trim(),
+      phone: phoneValue.value.trim(),
+      message: messageValue.value.trim(),
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'formContacto.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
