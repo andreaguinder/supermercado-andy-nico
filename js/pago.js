@@ -6,21 +6,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cartDiv = document.createElement("div");
 
+  let precioSinDescuento = 0;
+  let descuento = 0;
+  let sumaTotal = 0;
+
   // Mensaje para carrito vacío
   if (purchases.length === 0) {
     const messageText = document.createElement("p");
     messageText.textContent = "El carrito está vacío.";
     containerPurchase.appendChild(messageText);
   } else {
-    let sumaTotal = purchases.reduce((acumulador, purchase) => {
+    sumaTotal = purchases.reduce((acumulador, purchase) => {
       const [productName, selectedQuantity, productTotalPrice] = purchase;
       return acumulador + productTotalPrice;
     }, 0);
 
-    let precioSinDescuento = sumaTotal;
+    precioSinDescuento = sumaTotal;
 
     // Aplicar descuento del 20% si el total supera los 100,000
-    let descuento = 0;
     if (sumaTotal > 100000) {
       descuento = sumaTotal * 0.20;
       sumaTotal -= descuento;
@@ -94,13 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       buttonConfirm.addEventListener("click", () => {
         renderModalNotification();
-
-        setTimeout(() => {
-          savePurchaseToTxt(purchases, precioSinDescuento, descuento, sumaTotal);
-          localStorage.clear();
-          location.reload();
-        }, 1500);
-
       });
 
       buttonAbort.addEventListener("click", () => {
@@ -147,6 +143,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalNotification = document.createElement("div");
     modalNotification.classList.add("modalForm");
 
+    const buttonAbort = document.createElement("button");
+    buttonAbort.classList.add("btnModal", "pt-2", "px-3", "mx-2")
+   
+    buttonAbort.addEventListener('click', () => {
+      
+      savePurchaseToTxt(purchases, precioSinDescuento, descuento, sumaTotal);
+      localStorage.clear();
+      location.reload();
+
+    })
+ 
     const icon = document.createElement("i");
     icon.classList.add("fa-solid", "fa-x");
     icon.addEventListener("click", () => {
@@ -156,7 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = document.createElement("h5");
     message.textContent = "¡Gracias por tu compra! Te enviaremos el código de seguimiento lo antes posible por email.";
 
-    modalNotification.appendChild(icon);
+
+    buttonAbort.appendChild(icon)
+    modalNotification.appendChild(buttonAbort);
     modalNotification.appendChild(message);
     containerModal.appendChild(modalNotification);
     document.body.appendChild(containerModal);
