@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   //Carga productos
   const loadProducts = async () => {
     try {
@@ -19,32 +18,27 @@ document.addEventListener("DOMContentLoaded", () => {
       // Renderiza los productos
       renderProducts(products);
     } catch (error) {
-
       // Manejo de errores durante la operacion
-      console.error(
-        "Hubo un problema con la operacion:",
-        error,
-      );
+      console.error("Hubo un problema con la operacion:", error);
     }
   };
 
   // Inicializa el stock de productos en el storage
   const initializeStock = (products) => {
-     // Obtiene el stock de local storage
+    // Obtiene el stock de local storage
     const storedStock = JSON.parse(localStorage.getItem("stock")) || {};
 
     // Itera sobre cada producto
     products.forEach((product) => {
-
       // Si el stock del producto ya está almacenado, lo asigna al producto
       if (storedStock[product.nombre] !== undefined) {
         product.stock = storedStock[product.nombre];
       } else {
-      // Si el stock del producto no está almacenado, lo agrega al objeto 
+        // Si el stock del producto no está almacenado, lo agrega al objeto
         storedStock[product.nombre] = product.stock;
       }
     });
-      // Actualiza el local con el objeto actualizado
+    // Actualiza el local con el objeto actualizado
     localStorage.setItem("stock", JSON.stringify(storedStock));
   };
 
@@ -56,11 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Actualiza el stock del producto
     storedStock[productName] = newStock;
 
-     // Guarda el objeto actualizado
+    // Guarda el objeto actualizado
     localStorage.setItem("stock", JSON.stringify(storedStock));
   };
 
-   // Renderiza un modal de confirmación de pedido
+  // Renderiza un modal de confirmación de pedido
   const renderModalConfirmation = (
     productName,
     selectedQuantity,
@@ -221,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const containerProducts = document.getElementById("productsProduct");
 
     if (!containerProducts) {
-      console.error('El contenedor de productos no se encontró en el DOM.');
+      console.error("El contenedor de productos no se encontró en el DOM.");
       return;
     }
     products.forEach((product, index) => {
