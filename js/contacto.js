@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Validaciones de campos con expresiones regulares
 
-    const regExName = /^[a-zA-Z\s]{4,30}$/;
+    const regExName = /^[a-zA-Z\s]{4,40}$/;
     if (!regExName.test(nameValue.value.trim())) {
       const nameError = document.createElement("span");
       nameError.classList.add("errorMensaje");
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     
-    const regExSurname = /^[a-zA-Z\s]{4,30}$/;
+    const regExSurname = /^[a-zA-Z\s]{4,40}$/;
     if (!regExSurname.test(surnameValue.value.trim())) {
       const surnameError = document.createElement("span");
       surnameError.classList.add("errorMensaje");
