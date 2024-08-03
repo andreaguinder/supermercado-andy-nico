@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Validaciones de campos con expresiones regulares
 
-    const regExName = /^[a-zA-Z\s]{4,40}$/;
+    const regExName = /^[a-zA-Z\s]{4,4  0}$/;
     if (!regExName.test(nameValue.value.trim())) {
       const nameError = document.createElement("span");
       nameError.classList.add("errorMensaje");
